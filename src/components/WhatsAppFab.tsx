@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { COMPANY } from "@/data/company";
+import { onTrack } from "@/lib/analytics";
 
 /**
  * Botão flutuante de WhatsApp.
@@ -32,6 +33,9 @@ export function WhatsAppFab() {
       aria-label={`Falar com a NEXLOG no WhatsApp (${COMPANY.whatsappLabel})`}
       aria-hidden={!visible}
       tabIndex={visible ? 0 : -1}
+      data-event="click_whatsapp"
+      data-cta="whatsapp-fab"
+      onClick={onTrack("click_whatsapp", { location: "fab" })}
       className={`fixed bottom-5 right-5 z-40 inline-flex min-h-[52px]
         items-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm
         font-semibold text-white

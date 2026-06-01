@@ -1,6 +1,7 @@
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { Container } from "@/components/Container";
 import { COMPANY } from "@/data/company";
+import { onTrack, trackEvent } from "@/lib/analytics";
 
 /**
  * CTA Final — última chamada antes do bloco de contato,
@@ -47,7 +48,17 @@ export function CtaFinal() {
           </p>
 
           <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
-            <a href="#contato" className="nx-btn-primary">
+            <a
+              href="#contato"
+              className="nx-btn-primary"
+              data-event="click_solicitar_avaliacao"
+              data-cta="cta-final-primary"
+              onClick={(event) => {
+                trackEvent("click_cta_final", { location: "cta_final", label: "Solicitar avaliação de transporte" });
+                trackEvent("click_avaliar_transporte", { location: "cta_final" });
+                onTrack("click_solicitar_avaliacao", { location: "cta_final" })(event);
+              }}
+            >
               Solicitar avaliação de transporte
               <ArrowRight
                 className="h-4 w-4"
@@ -60,6 +71,12 @@ export function CtaFinal() {
               target="_blank"
               rel="noopener noreferrer"
               className="nx-btn-ghost-light"
+              data-event="click_whatsapp"
+              data-cta="cta-final-secondary"
+              onClick={(event) => {
+                trackEvent("click_cta_final", { location: "cta_final", label: "Falar pelo WhatsApp" });
+                onTrack("click_whatsapp", { location: "cta_final" })(event);
+              }}
             >
               <MessageCircle
                 className="h-4 w-4"

@@ -3,6 +3,7 @@ import { Container } from "@/components/Container";
 import { Logo } from "@/components/Logo";
 import { COMPANY } from "@/data/company";
 import { NAV_ITEMS } from "@/data/navigation";
+import { onTrack, type ConversionEvent } from "@/lib/analytics";
 
 // Reaproveita o menu principal e adiciona FAQ como âncora extra.
 const FOOTER_LINKS = [
@@ -15,6 +16,8 @@ interface ContactLink {
   label: string;
   href: string;
   external?: boolean;
+  event?: ConversionEvent;
+  dataCta?: string;
 }
 
 const CONTACT_LINKS: ReadonlyArray<ContactLink> = [
@@ -23,8 +26,16 @@ const CONTACT_LINKS: ReadonlyArray<ContactLink> = [
     label: COMPANY.whatsappLabel,
     href: COMPANY.whatsappCtaLink,
     external: true,
+    event: "click_whatsapp",
+    dataCta: "footer-whatsapp",
   },
-  { icon: Mail, label: COMPANY.email, href: COMPANY.mailtoLink },
+  {
+    icon: Mail,
+    label: COMPANY.email,
+    href: COMPANY.mailtoLink,
+    event: "click_email",
+    dataCta: "footer-email",
+  },
   {
     icon: Globe,
     label: COMPANY.domain,
@@ -127,13 +138,16 @@ export function Footer() {
           <div className="lg:col-span-4">
             <h3 className="nx-label text-white">Contato</h3>
             <ul className="mt-5 space-y-3 text-sm">
-              {CONTACT_LINKS.map(({ icon: Icon, label, href, external }) => (
+              {CONTACT_LINKS.map(({ icon: Icon, label, href, external, event, dataCta }) => (
                 <li key={label}>
                   <a
                     href={href}
                     target={external ? "_blank" : undefined}
                     rel={external ? "noopener noreferrer" : undefined}
                     className="group inline-flex min-h-[28px] items-center gap-3 break-words text-graphite-300 transition-colors hover:text-accent-300"
+                    data-event={event}
+                    data-cta={dataCta}
+                    onClick={event ? onTrack(event, { location: "footer" }) : undefined}
                   >
                     <span
                       aria-hidden="true"

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { Logo } from "./Logo";
 import { NAV_ITEMS } from "@/data/navigation";
+import { onTrack } from "@/lib/analytics";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -94,8 +95,14 @@ export function Navbar() {
         </ul>
 
         <div className="hidden lg:block">
-          <a href="#contato" className="nx-btn-primary">
-            Solicitar análise de rota
+          <a
+            href="#contato"
+            className="nx-btn-primary"
+            data-event="click_solicitar_avaliacao"
+            data-cta="navbar-desktop"
+            onClick={onTrack("click_solicitar_avaliacao", { location: "navbar" })}
+          >
+            Solicitar avaliação
             <ArrowRight
               className="h-4 w-4"
               strokeWidth={2.25}
@@ -153,10 +160,15 @@ export function Navbar() {
           </ul>
           <a
             href="#contato"
-            onClick={closeMenu}
+            onClick={(event) => {
+              onTrack("click_solicitar_avaliacao", { location: "navbar_mobile" })(event);
+              closeMenu();
+            }}
             className="nx-btn-primary mt-4 w-full"
+            data-event="click_solicitar_avaliacao"
+            data-cta="navbar-mobile"
           >
-            Solicitar análise de rota
+            Solicitar avaliação
             <ArrowRight
               className="h-4 w-4"
               strokeWidth={2.25}

@@ -10,6 +10,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { Container } from "@/components/Container";
 import { COMPANY } from "@/data/company";
+import { onTrack, trackEvent } from "@/lib/analytics";
 
 interface MicroProof {
   icon: LucideIcon;
@@ -96,7 +97,16 @@ export function Hero() {
               [animation-delay:240ms]
               sm:flex-row sm:items-center"
           >
-            <a href="#contato" className="nx-btn-primary">
+            <a
+              href="#contato"
+              className="nx-btn-primary"
+              data-event="click_solicitar_avaliacao"
+              data-cta="hero-primary"
+              onClick={(event) => {
+                trackEvent("click_cta_hero", { location: "hero", label: "Solicitar avaliação de transporte" });
+                onTrack("click_solicitar_avaliacao", { location: "hero" })(event);
+              }}
+            >
               Solicitar avaliação de transporte
               <ArrowRight
                 className="h-4 w-4"
@@ -109,6 +119,12 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               className="nx-btn-ghost-light"
+              data-event="click_whatsapp"
+              data-cta="hero-secondary"
+              onClick={(event) => {
+                trackEvent("click_cta_hero", { location: "hero", label: "Falar pelo WhatsApp" });
+                onTrack("click_whatsapp", { location: "hero" })(event);
+              }}
             >
               Falar pelo WhatsApp
             </a>

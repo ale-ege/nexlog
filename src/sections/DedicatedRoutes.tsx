@@ -2,6 +2,7 @@ import { ArrowRight, MapPinned } from "lucide-react";
 import { Container } from "@/components/Container";
 import { SectionHeader } from "@/components/SectionHeader";
 import { DEDICATED_USE_CASES } from "@/data/dedicatedRoutes";
+import { onTrack, trackEvent } from "@/lib/analytics";
 
 export function DedicatedRoutes() {
   return (
@@ -53,7 +54,16 @@ export function DedicatedRoutes() {
             </ul>
 
             <div className="mt-10">
-              <a href="#contato" className="nx-btn-primary">
+              <a
+                href="#contato"
+                className="nx-btn-primary"
+                data-event="click_avaliar_transporte"
+                data-cta="dedicated-routes"
+                onClick={(event) => {
+                  trackEvent("click_avaliar_transporte", { location: "rotas_dedicadas" });
+                  onTrack("click_solicitar_avaliacao", { location: "rotas_dedicadas" })(event);
+                }}
+              >
                 Solicitar avaliação de transporte
                 <ArrowRight
                   className="h-4 w-4"

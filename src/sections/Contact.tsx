@@ -3,6 +3,7 @@ import { Mail, Phone, Globe, ArrowRight, MapPin } from "lucide-react";
 import { Container } from "@/components/Container";
 import { SectionHeader } from "@/components/SectionHeader";
 import { COMPANY } from "@/data/company";
+import { onTrack, type ConversionEvent } from "@/lib/analytics";
 
 interface ContactRow {
   icon: ReactNode;
@@ -10,6 +11,8 @@ interface ContactRow {
   value: string;
   href?: string;
   external?: boolean;
+  event?: ConversionEvent;
+  dataCta?: string;
 }
 
 const CONTACT_ROWS: ContactRow[] = [
@@ -19,12 +22,16 @@ const CONTACT_ROWS: ContactRow[] = [
     value: COMPANY.whatsappLabel,
     href: COMPANY.whatsappCtaLink,
     external: true,
+    event: "click_whatsapp",
+    dataCta: "contact-row-whatsapp",
   },
   {
     icon: <Mail className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />,
     label: "E-mail",
     value: COMPANY.email,
     href: COMPANY.mailtoLink,
+    event: "click_email",
+    dataCta: "contact-row-email",
   },
   {
     icon: <MapPin className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />,
@@ -69,6 +76,9 @@ export function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="nx-btn-primary"
+                data-event="click_whatsapp"
+                data-cta="contact-primary"
+                onClick={onTrack("click_whatsapp", { location: "contato" })}
               >
                 Falar pelo WhatsApp
                 <ArrowRight
@@ -77,7 +87,13 @@ export function Contact() {
                   aria-hidden="true"
                 />
               </a>
-              <a href={COMPANY.mailtoLink} className="nx-btn-secondary">
+              <a
+                href={COMPANY.mailtoLink}
+                className="nx-btn-secondary"
+                data-event="click_email"
+                data-cta="contact-secondary"
+                onClick={onTrack("click_email", { location: "contato" })}
+              >
                 Enviar e-mail
               </a>
             </div>
@@ -98,7 +114,7 @@ export function Contact() {
   );
 }
 
-function ContactRow({ icon, label, value, href, external }: ContactRow) {
+function ContactRow({ icon, label, value, href, external, event, dataCta }: ContactRow) {
   const inner = (
     <>
       <span
@@ -137,6 +153,9 @@ function ContactRow({ icon, label, value, href, external }: ContactRow) {
           target={external ? "_blank" : undefined}
           rel={external ? "noopener noreferrer" : undefined}
           className="group flex items-center gap-4 rounded-2xl p-4 transition-colors hover:bg-white sm:p-5"
+          data-event={event}
+          data-cta={dataCta}
+          onClick={event ? onTrack(event, { location: "contato_panel" }) : undefined}
         >
           {inner}
         </a>

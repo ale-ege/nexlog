@@ -18,9 +18,15 @@
       `public/_headers`). Esta meta cobre cenários em que o host não injeta
       o header (ex.: abrir o HTML direto via file://, hosts sem suporte).
     -->
+    <!--
+      CSP — permite Google Tag Manager, Google Analytics 4 e Microsoft
+      Clarity. 'unsafe-inline' em script-src é exigência do GTM para
+      executar tags injetadas. Se você não usa GTM, pode endurecer
+      removendo 'unsafe-inline' e os domínios googletagmanager/clarity.
+    -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; upgrade-insecure-requests"
+      content="default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.clarity.ms https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.clarity.ms https://*.bing.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://*.analytics.google.com https://*.clarity.ms; frame-src https://www.googletagmanager.com; manifest-src 'self'; upgrade-insecure-requests"
     />
 
     <title>NEXLOG | Transportadora no RS e Transporte de Cargas para Empresas</title>
@@ -271,8 +277,55 @@
         ]
       }
     </script>
+    <!--
+      ============================================================
+      GOOGLE TAG MANAGER (head) — INSTRUÇÕES
+      ============================================================
+      Para ativar diretamente no HTML:
+        1. Descomente o bloco "GTM-SCRIPT" abaixo (apague apenas as
+           linhas que dizem GTM-SCRIPT-BEGIN/END).
+        2. Substitua GTM-XXXXXXX pelo ID real do seu container.
+        3. Faça um novo build (npm run build) e suba a pasta dist/.
+
+      ALTERNATIVA SEM EDITAR HTML (recomendada para dev/deploy):
+        Configure VITE_GTM_CONTAINER_ID em .env.local. O componente
+        Analytics em src/components/Analytics.tsx carrega o GTM
+        automaticamente em tempo de execução.
+
+      ATENÇÃO: use apenas UMA das duas abordagens (HTML OU env)
+      para evitar duplicidade de tags.
+
+      GTM-SCRIPT-BEGIN
+      &lt;script&gt;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-XXXXXXX');
+      &lt;/script&gt;
+      GTM-SCRIPT-END
+    -->
   </head>
   <body>
+    <!--
+      ============================================================
+      GOOGLE TAG MANAGER (noscript fallback)
+      ============================================================
+      Necessário para usuários sem JavaScript. Para ativar:
+      descomente o bloco GTM-NOSCRIPT abaixo e substitua
+      GTM-XXXXXXX pelo ID real.
+
+      GTM-NOSCRIPT-BEGIN
+      &lt;noscript&gt;
+        &lt;iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+          height="0" width="0"
+          style="display:none;visibility:hidden"
+          title="Google Tag Manager"
+        &gt;&lt;/iframe&gt;
+      &lt;/noscript&gt;
+      GTM-NOSCRIPT-END
+    -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
