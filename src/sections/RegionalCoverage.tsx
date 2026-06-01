@@ -1,6 +1,7 @@
 import { MapPinned, PackageCheck, Building2, Repeat } from "lucide-react";
 import { Container } from "@/components/Container";
 import { SectionHeader } from "@/components/SectionHeader";
+import { COMPANY } from "@/data/company";
 
 const COVERAGE_HIGHLIGHTS = [
   {
@@ -41,7 +42,11 @@ export function RegionalCoverage() {
             />
 
             <p className="mt-6 text-base leading-relaxed text-graphite-700 sm:text-lg">
-              Atendemos indústrias, distribuidores, redes e e-commerces
+              Com base em{" "}
+              <strong className="font-semibold text-navy-900">
+                {COMPANY.city} ({COMPANY.metroArea})
+              </strong>
+              , atendemos indústrias, distribuidores, redes e e-commerces
               regionais que buscam estruturar entregas frequentes,
               abastecimento de lojas e operações recorrentes no RS, com
               conexões eventuais a outros estados conforme a operação.
@@ -116,9 +121,12 @@ function CoverageCard() {
             <MapPinned className="h-5 w-5" strokeWidth={1.75} />
           </span>
           <div>
-            <p className="nx-label text-accent-300">Cobertura</p>
+            <p className="nx-label text-accent-300">Base operacional</p>
             <p className="font-display text-base font-semibold text-white">
-              Rio Grande do Sul
+              {COMPANY.city} · {COMPANY.stateCode}
+            </p>
+            <p className="mt-0.5 text-xs text-graphite-300">
+              {COMPANY.metroArea}
             </p>
           </div>
         </div>

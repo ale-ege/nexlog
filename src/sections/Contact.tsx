@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Mail, Phone, Globe, ArrowRight } from "lucide-react";
+import { Mail, Phone, Globe, ArrowRight, MapPin } from "lucide-react";
 import { Container } from "@/components/Container";
 import { SectionHeader } from "@/components/SectionHeader";
 import { COMPANY } from "@/data/company";
@@ -8,7 +8,7 @@ interface ContactRow {
   icon: ReactNode;
   label: string;
   value: string;
-  href: string;
+  href?: string;
   external?: boolean;
 }
 
@@ -25,6 +25,11 @@ const CONTACT_ROWS: ContactRow[] = [
     label: "E-mail",
     value: COMPANY.email,
     href: COMPANY.mailtoLink,
+  },
+  {
+    icon: <MapPin className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />,
+    label: "Localização",
+    value: `${COMPANY.city} · ${COMPANY.stateCode}`,
   },
   {
     icon: <Globe className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />,
@@ -93,32 +98,52 @@ export function Contact() {
 }
 
 function ContactRow({ icon, label, value, href, external }: ContactRow) {
-  return (
-    <li>
-      <a
-        href={href}
-        target={external ? "_blank" : undefined}
-        rel={external ? "noopener noreferrer" : undefined}
-        className="group flex items-center gap-4 rounded-2xl p-4 transition-colors hover:bg-white sm:p-5"
+  const inner = (
+    <>
+      <span
+        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl
+          bg-navy-50 text-navy-700 ring-1 ring-inset ring-navy-100 transition-colors
+          ${
+            href
+              ? "group-hover:bg-accent-500/10 group-hover:text-accent-500 group-hover:ring-accent-400/30"
+              : ""
+          }`}
+        aria-hidden="true"
       >
-        <span
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-navy-50 text-navy-700 ring-1 ring-inset ring-navy-100 transition-colors group-hover:bg-accent-500/10 group-hover:text-accent-500 group-hover:ring-accent-400/30"
-          aria-hidden="true"
-        >
-          {icon}
+        {icon}
+      </span>
+      <span className="flex min-w-0 flex-1 flex-col">
+        <span className="nx-label text-graphite-500">{label}</span>
+        <span className="mt-1 truncate font-display text-base font-semibold text-navy-900">
+          {value}
         </span>
-        <span className="flex min-w-0 flex-1 flex-col">
-          <span className="nx-label text-graphite-500">{label}</span>
-          <span className="mt-1 truncate font-display text-base font-semibold text-navy-900">
-            {value}
-          </span>
-        </span>
+      </span>
+      {href && (
         <ArrowRight
           className="h-4 w-4 shrink-0 text-graphite-400 transition-transform group-hover:translate-x-0.5 group-hover:text-accent-500"
           strokeWidth={2}
           aria-hidden="true"
         />
-      </a>
+      )}
+    </>
+  );
+
+  return (
+    <li>
+      {href ? (
+        <a
+          href={href}
+          target={external ? "_blank" : undefined}
+          rel={external ? "noopener noreferrer" : undefined}
+          className="group flex items-center gap-4 rounded-2xl p-4 transition-colors hover:bg-white sm:p-5"
+        >
+          {inner}
+        </a>
+      ) : (
+        <div className="flex items-center gap-4 rounded-2xl p-4 sm:p-5">
+          {inner}
+        </div>
+      )}
     </li>
   );
 }

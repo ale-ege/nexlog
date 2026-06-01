@@ -71,24 +71,34 @@ export function Footer() {
             </p>
 
             <div
-              className="mt-6 inline-flex items-center gap-3 rounded-2xl
+              className="mt-6 inline-flex items-start gap-3 rounded-2xl
                 border border-white/10 bg-white/[0.04] px-4 py-3
                 backdrop-blur-sm"
               itemScope
               itemType="https://schema.org/Place"
             >
               <span
-                className="flex h-9 w-9 items-center justify-center rounded-xl
-                  bg-accent-400/15 text-accent-300 ring-1 ring-inset
+                className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center
+                  rounded-xl bg-accent-400/15 text-accent-300 ring-1 ring-inset
                   ring-accent-400/30"
                 aria-hidden="true"
               >
                 <MapPin className="h-4 w-4" strokeWidth={1.75} />
               </span>
-              <div className="leading-tight">
+              <div
+                className="leading-tight"
+                itemProp="address"
+                itemScope
+                itemType="https://schema.org/PostalAddress"
+              >
                 <p className="nx-label text-accent-300">Atuação</p>
                 <p className="text-sm font-semibold text-white">
-                  <span itemProp="name">{COMPANY.region}</span>
+                  <span itemProp="addressLocality">{COMPANY.city}</span>
+                  {" · "}
+                  <span itemProp="addressRegion">{COMPANY.stateCode}</span>
+                </p>
+                <p className="mt-0.5 text-xs text-graphite-300">
+                  {COMPANY.metroArea}
                 </p>
               </div>
             </div>

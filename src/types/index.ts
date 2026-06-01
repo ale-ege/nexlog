@@ -21,6 +21,12 @@ export interface CompanyInfo {
   phoneE164: string;
   /** Região de atuação (estado/área administrativa). */
   region: string;
+  /** Cidade-sede da operação (usada em SEO local e Footer). */
+  city: string;
+  /** Sigla do estado, ex: "RS". */
+  stateCode: string;
+  /** Contexto regional, ex: "Região metropolitana de Porto Alegre". */
+  metroArea: string;
 }
 
 export interface FaqItem {
