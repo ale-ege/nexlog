@@ -23,8 +23,8 @@ export function Security() {
         <SectionHeader
           titleId="security-title"
           eyebrow="Segurança e previsibilidade"
-          title="Segurança e previsibilidade para sua operação."
-          subtitle="Cada operação é estruturada com foco em responsabilidade, comunicação clara e acompanhamento da carga. A NEXLOG atua para reduzir improvisos, atrasos e incertezas no transporte regional."
+          title="Segurança e previsibilidade para o transporte da sua carga"
+          subtitle="Cada operação é conduzida com foco em responsabilidade, comunicação clara e acompanhamento próximo. A NEXLOG atua para reduzir improvisos, atrasos e incertezas no transporte regional de cargas."
           variant="dark"
         />
 

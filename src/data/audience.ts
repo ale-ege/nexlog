@@ -1,36 +1,33 @@
-import { Factory, Boxes, ShoppingBag, Repeat } from "lucide-react";
+import { Factory, Boxes, ShoppingBag, Truck } from "lucide-react";
 import type { IconCard } from "@/types";
 
 /**
- * Públicos-alvo da NEXLOG — empresas com rotina logística que querem
- * sair do frete avulso sem precisar montar frota própria.
- *
- * Ordem pensada para conversão: do mais óbvio (indústria/distribuidor)
- * para o mais específico (operação fixa com caminhão dedicado).
+ * Públicos-alvo da NEXLOG — empresas com rotina logística que precisam
+ * de transporte regular sem ter frota própria.
  */
 export const AUDIENCE_CARDS: IconCard[] = [
   {
     icon: Factory,
     title: "Indústrias regionais",
     description:
-      "Entregas programadas para clientes, fornecedores e centros de distribuição.",
+      "Transporte de cargas para clientes, fornecedores, centros de distribuição e unidades operacionais.",
   },
   {
     icon: Boxes,
     title: "Distribuidores",
     description:
-      "Rotas recorrentes com previsibilidade de coleta e entrega.",
+      "Rotas recorrentes para empresas que precisam manter regularidade nas coletas e entregas.",
   },
   {
     icon: ShoppingBag,
-    title: "E-commerces e operações regionais",
+    title: "E-commerces regionais",
     description:
-      "Apoio logístico para entregas no RS e conexões com outros estados.",
+      "Apoio para operações de entrega no Rio Grande do Sul e conexões estratégicas com outras regiões.",
   },
   {
-    icon: Repeat,
+    icon: Truck,
     title: "Empresas com operação fixa",
     description:
-      "Caminhão dedicado para demandas recorrentes e processos padronizados.",
+      "Caminhão dedicado e frete dedicado para demandas recorrentes, processos padronizados e maior controle logístico.",
   },
 ];

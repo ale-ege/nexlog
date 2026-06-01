@@ -22,8 +22,8 @@ export function Audience() {
         <SectionHeader
           titleId="audience-title"
           eyebrow="Para quem é a NEXLOG?"
-          title="Para empresas que entregam com regularidade — e querem fazer isso bem."
-          subtitle="Para empresas que precisam entregar com regularidade, mas não querem montar frota própria nem depender de fretes improvisados."
+          title="Transportadora para empresas que precisam de entregas recorrentes"
+          subtitle="A NEXLOG é indicada para empresas que precisam transportar cargas com frequência, mas não querem depender de fretes improvisados ou montar uma frota própria."
         />
 
         <div className="nx-grid-cards mt-12 sm:mt-14 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
@@ -37,23 +37,42 @@ export function Audience() {
           ))}
         </div>
 
-        {/* Mensagem institucional — encerra a seção reforçando o porquê
-            da NEXLOG e o tipo de relação que ela busca construir. */}
+        {/* Mensagem institucional do briefing — encerra a seção com
+            o "porquê" da empresa e o tipo de relação que ela busca. */}
         <div
           className="mt-12 overflow-hidden rounded-3xl border border-navy-100
             bg-gradient-to-br from-graphite-50 to-white p-8 shadow-card
             sm:mt-14 sm:p-10 lg:p-12"
+          aria-labelledby="audience-mission-title"
         >
-          <p className="font-display text-lg leading-relaxed text-navy-900 sm:text-xl">
-            A NEXLOG nasceu para atender empresas que precisam de transporte
-            recorrente com mais{" "}
-            <span className="font-semibold text-navy-950">
-              previsibilidade, proximidade e responsabilidade
-            </span>
-            . Em vez de atuar apenas com fretes avulsos, estruturamos rotas
-            dedicadas e operações programadas para clientes que valorizam
-            segurança, comunicação clara e parceria de longo prazo.
-          </p>
+          <span className="nx-eyebrow">Sobre a NEXLOG</span>
+          <h3
+            id="audience-mission-title"
+            className="mt-4 font-display text-2xl font-bold leading-tight text-navy-900 sm:text-3xl"
+          >
+            Uma transportadora regional para empresas do RS
+          </h3>
+          <div className="mt-5 space-y-4 text-base leading-relaxed text-graphite-700 sm:text-lg">
+            <p>
+              A NEXLOG nasceu para atender empresas que precisam de transporte
+              de cargas com mais{" "}
+              <strong className="font-semibold text-navy-900">
+                previsibilidade, proximidade e responsabilidade
+              </strong>
+              .
+            </p>
+            <p>
+              Em vez de atuar apenas com fretes avulsos, buscamos estruturar
+              operações mais organizadas para clientes que valorizam segurança,
+              comunicação clara e parceria de longo prazo.
+            </p>
+            <p>
+              Nosso foco está em criar soluções práticas de transporte para
+              empresas que precisam entregar com regularidade, reduzir
+              improvisos e contar com uma transportadora próxima da rotina da
+              operação.
+            </p>
+          </div>
         </div>
       </Container>
     </section>

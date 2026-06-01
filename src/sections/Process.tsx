@@ -22,8 +22,8 @@ export function Process() {
         <SectionHeader
           titleId="process-title"
           eyebrow="Como funciona"
-          title="Como estruturamos sua operação — em 4 etapas."
-          subtitle="Do entendimento inicial à execução acompanhada, cada operação é construída com método, proximidade e clareza de responsabilidades."
+          title="Como funciona o transporte dedicado da NEXLOG"
+          subtitle="Antes de falar em preço, entendemos a operação para indicar o modelo de transporte mais adequado para a empresa."
           variant="dark"
         />
 

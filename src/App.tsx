@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { Hero } from "@/sections/Hero";
+import { About } from "@/sections/About";
 import { Solutions } from "@/sections/Solutions";
 import { Audience } from "@/sections/Audience";
 import { DedicatedRoutes } from "@/sections/DedicatedRoutes";
@@ -9,22 +10,27 @@ import { Differentials } from "@/sections/Differentials";
 import { Security } from "@/sections/Security";
 import { RegionalCoverage } from "@/sections/RegionalCoverage";
 import { Faq } from "@/sections/Faq";
+import { CtaFinal } from "@/sections/CtaFinal";
 import { Contact } from "@/sections/Contact";
 import { Footer } from "@/sections/Footer";
 
 /**
- * Ordem narrativa do site, do reconhecimento à conversão:
+ * Ordem narrativa otimizada para SEO + conversão:
  *
- *   Hero            → quem somos / proposta
- *   Solutions       → o que entregamos (4 produtos)
- *   Audience        → para quem é (4 públicos)
- *   DedicatedRoutes → aprofunda o produto âncora (rota dedicada)
- *   Process         → como entregamos (4 etapas)
- *   Differentials   → por que nós (4 motivos)
- *   Security        → segurança e previsibilidade
- *   RegionalCoverage→ onde atuamos (SEO local)
- *   Faq             → tira últimas dúvidas
- *   Contact         → fecha conversão
+ *   Hero            → H1 e proposta com palavras-chave principais
+ *   About           → SEO local (cidades, vocabulário denso)
+ *   Solutions       → 6 produtos (transporte de cargas, caminhão
+ *                     dedicado, frete dedicado, rotas prog/ded,
+ *                     logística regional)
+ *   Audience        → 4 públicos + bloco institucional "Sobre a NEXLOG"
+ *   DedicatedRoutes → aprofunda rota dedicada (timeline visual)
+ *   Process         → 4 etapas consultivas
+ *   Differentials   → 4 motivos
+ *   Security        → 6 pontos de previsibilidade
+ *   RegionalCoverage→ destaque de atuação regional (SEO local)
+ *   Faq            → 7 perguntas
+ *   CtaFinal        → última chamada
+ *   Contact         → meios de contato (WhatsApp, e-mail, localização)
  */
 export default function App() {
   return (
@@ -40,6 +46,7 @@ export default function App() {
 
       <main id="conteudo" className="flex-1">
         <Hero />
+        <About />
         <Solutions />
         <Audience />
         <DedicatedRoutes />
@@ -48,6 +55,7 @@ export default function App() {
         <Security />
         <RegionalCoverage />
         <Faq />
+        <CtaFinal />
         <Contact />
       </main>
 

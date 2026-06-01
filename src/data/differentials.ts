@@ -1,9 +1,9 @@
-import { Headphones, Ruler, ShieldCheck, HandHeart } from "lucide-react";
+import { Headphones, Building2, ShieldCheck, MapPinned } from "lucide-react";
 import type { IconCard } from "@/types";
 
 /**
  * Diferenciais comerciais — argumentos que respondem
- * "por que escolher a NEXLOG?" do ponto de vista do contratante.
+ * "por que escolher a NEXLOG como transportadora no RS?"
  */
 export const DIFFERENTIALS: IconCard[] = [
   {
@@ -13,21 +13,21 @@ export const DIFFERENTIALS: IconCard[] = [
       "Você fala com quem entende da operação, sem camadas desnecessárias e sem perder tempo.",
   },
   {
-    icon: Ruler,
-    title: "Rotas sob medida",
+    icon: Building2,
+    title: "Foco em empresas",
     description:
-      "Desenhamos a solução conforme a recorrência, volume e necessidade da empresa.",
+      "Atuamos com transporte de cargas para empresas que precisam de organização, regularidade e responsabilidade.",
   },
   {
     icon: ShieldCheck,
     title: "Previsibilidade operacional",
     description:
-      "Menos improviso, menos urgência e mais controle sobre a entrega.",
+      "Menos improviso, menos urgência e mais controle sobre coletas, entregas e rotas.",
   },
   {
-    icon: HandHeart,
-    title: "Parceria de longo prazo",
+    icon: MapPinned,
+    title: "Flexibilidade regional",
     description:
-      "Não buscamos apenas fretes isolados. Buscamos operações recorrentes e bem estruturadas.",
+      "Estruturamos o transporte conforme a recorrência, volume e necessidade da empresa no Rio Grande do Sul.",
   },
 ];

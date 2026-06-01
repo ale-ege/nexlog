@@ -53,13 +53,14 @@ export function Contact() {
             <SectionHeader
               titleId="contact-title"
               eyebrow="Contato"
-              title="Fale com a NEXLOG sobre a sua operação."
-              subtitle="Avaliamos rotas dedicadas, caminhão dedicado e operações programadas para empresas no Rio Grande do Sul. Sem fórmula pronta — cada solução é desenhada conforme a sua rotina."
+              title="Fale com a NEXLOG sobre o transporte da sua empresa"
+              subtitle="Avaliamos transporte de cargas, caminhão dedicado, frete dedicado e rotas programadas para empresas no Rio Grande do Sul. Cada solução é desenhada conforme a rotina da operação."
             />
 
             <p className="mt-6 text-sm leading-relaxed text-graphite-700 sm:text-base">
               Atendimento a empresas no Rio Grande do Sul mediante análise de
-              rota e operação.
+              rota e operação. Informe origem, destino, frequência, tipo de
+              carga e necessidade da operação.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">

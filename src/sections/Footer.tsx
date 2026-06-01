@@ -65,9 +65,8 @@ export function Footer() {
               {COMPANY.tagline}
             </p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-graphite-300">
-              Parceira logística regional para empresas que precisam de rotas
-              dedicadas, caminhão dedicado e operação programada — com
-              previsibilidade, segurança e atendimento próximo.
+              Transportadora no RS para transporte de cargas, caminhão
+              dedicado, frete dedicado e rotas programadas para empresas.
             </p>
 
             <div
@@ -164,7 +163,7 @@ export function Footer() {
             © {FOOTER_YEAR} {COMPANY.name}. Todos os direitos reservados.
           </p>
           <p>
-            Rotas dedicadas · Caminhão dedicado · Transporte programado no RS
+            Transporte de cargas · Caminhão dedicado · Frete dedicado · RS
           </p>
         </div>
       </Container>

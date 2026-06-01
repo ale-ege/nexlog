@@ -1,10 +1,11 @@
 import {
   ArrowRight,
   Sparkles,
-  CalendarCheck,
+  PackageCheck,
+  Truck,
+  Route,
+  CalendarClock,
   Headphones,
-  MapPin,
-  Eye,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Container } from "@/components/Container";
@@ -15,25 +16,25 @@ interface MicroProof {
   label: string;
 }
 
+/**
+ * 5 microprovas alinhadas ao briefing — cobrem as palavras-chave
+ * de maior intenção de busca já no above-the-fold.
+ */
 const MICRO_PROOFS: MicroProof[] = [
-  { icon: CalendarCheck, label: "Rotas programadas" },
+  { icon: PackageCheck, label: "Transporte de cargas no RS" },
+  { icon: Truck, label: "Caminhão dedicado" },
+  { icon: Route, label: "Frete dedicado" },
+  { icon: CalendarClock, label: "Rotas programadas" },
   { icon: Headphones, label: "Atendimento direto" },
-  { icon: MapPin, label: "Operação regional" },
-  { icon: Eye, label: "Carga acompanhada" },
 ];
 
 /**
  * Hero centralizado, sem ilustração — foco total na mensagem
- * (estilo Stripe/Linear/Vercel). Composição:
+ * (estilo Stripe/Linear/Vercel).
  *
- *   - Eyebrow com selo de posicionamento
- *   - H1 forte (até 3 linhas no desktop)
- *   - Subtítulo de apoio
- *   - 2 CTAs (primário + WhatsApp)
- *   - 4 microprovas em chips
- *
- * O background mantém os blur halos e o grid sutil para sustentar
- * profundidade sem competir com a leitura.
+ * H1 com palavras-chave de SEO orgânico no Google: começa por
+ * "Transportadora no RS" (alto volume) e qualifica com "transporte
+ * de cargas e caminhão dedicado" (intenção comercial).
  */
 export function Hero() {
   return (
@@ -53,22 +54,22 @@ export function Hero() {
               strokeWidth={2.25}
               aria-hidden="true"
             />
-            Parceiro logístico regional no RS
+            Transportadora no Rio Grande do Sul
           </span>
 
           <h1
             id="hero-title"
-            className="mt-6 text-balance font-display text-[36px] font-extrabold
-              leading-[1.05] tracking-[-0.02em] text-white animate-fade-up
+            className="mt-6 text-balance font-display text-[34px] font-extrabold
+              leading-[1.06] tracking-[-0.02em] text-white animate-fade-up
               [animation-delay:80ms]
               sm:text-5xl sm:leading-[1.04] lg:text-6xl lg:tracking-[-0.025em]
-              xl:text-[64px]"
+              xl:text-[60px]"
           >
-            Transporte dedicado para empresas que precisam de{" "}
+            Transportadora no RS para transporte de cargas e{" "}
             <span className="bg-gradient-to-r from-accent-300 via-accent-400 to-accent-200 bg-clip-text text-transparent">
-              previsibilidade
-            </span>{" "}
-            no RS.
+              caminhão dedicado
+            </span>
+            .
           </h1>
 
           <p
@@ -76,9 +77,18 @@ export function Hero() {
               text-graphite-200 animate-fade-up [animation-delay:160ms]
               sm:text-lg"
           >
-            Criamos rotas programadas, caminhão dedicado e soluções logísticas
-            regionais para empresas que buscam segurança, atendimento próximo
-            e operação sem improviso.
+            A NEXLOG atende empresas no Rio Grande do Sul com transporte de
+            cargas, frete dedicado, caminhão dedicado, rotas programadas e
+            operações logísticas recorrentes.
+          </p>
+
+          <p
+            className="mt-4 max-w-xl text-balance text-sm leading-relaxed
+              text-graphite-300 animate-fade-up [animation-delay:200ms]
+              sm:text-base"
+          >
+            Ideal para empresas que precisam de entregas recorrentes,
+            atendimento próximo e mais previsibilidade na operação logística.
           </p>
 
           <div
@@ -87,7 +97,7 @@ export function Hero() {
               sm:flex-row sm:items-center"
           >
             <a href="#contato" className="nx-btn-primary">
-              Solicitar avaliação de rota
+              Solicitar avaliação de transporte
               <ArrowRight
                 className="h-4 w-4"
                 strokeWidth={2.25}
@@ -104,24 +114,24 @@ export function Hero() {
             </a>
           </div>
 
-          {/* Microprovas — 4 chips com ícone + texto, alinhados ao briefing */}
+          {/* 5 microprovas em flex-wrap centralizado (acomoda número
+              ímpar e textos de comprimentos variáveis). */}
           <ul
-            className="mt-14 grid grid-cols-2 gap-3 animate-fade-up
-              [animation-delay:320ms]
-              sm:max-w-2xl sm:grid-cols-4 sm:gap-4"
+            className="mt-14 flex flex-wrap justify-center gap-2.5 animate-fade-up
+              [animation-delay:320ms] sm:gap-3"
           >
             {MICRO_PROOFS.map(({ icon: Icon, label }) => (
               <li
                 key={label}
-                className="group flex items-center gap-2.5 rounded-2xl
-                  border border-white/10 bg-white/[0.04] px-3.5 py-2.5
+                className="group inline-flex items-center gap-2 rounded-full
+                  border border-white/10 bg-white/[0.04] px-3.5 py-2
                   backdrop-blur-sm transition-colors duration-300
                   hover:border-accent-400/30 hover:bg-white/[0.06]"
               >
                 <span
                   aria-hidden="true"
-                  className="flex h-7 w-7 shrink-0 items-center justify-center
-                    rounded-lg bg-accent-400/15 text-accent-300 ring-1
+                  className="flex h-6 w-6 shrink-0 items-center justify-center
+                    rounded-md bg-accent-400/15 text-accent-300 ring-1
                     ring-inset ring-accent-400/30"
                 >
                   <Icon className="h-3.5 w-3.5" strokeWidth={2} />
@@ -144,11 +154,6 @@ export function Hero() {
   );
 }
 
-/**
- * Background layered: gradient radial + grid sutil + 2 blur halos
- * (accent quente + navy frio) para sustentar profundidade sem
- * roubar a leitura do título.
- */
 function BackgroundLayers() {
   return (
     <>

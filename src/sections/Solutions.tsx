@@ -19,11 +19,11 @@ export function Solutions() {
         <SectionHeader
           titleId="solutions-title"
           eyebrow="Soluções"
-          title="Soluções de transporte dedicado e operação programada no RS."
-          subtitle="Quatro modelos para empresas que precisam de uma operação logística regional estruturada — sem depender de fretes avulsos ou soluções genéricas."
+          title="Soluções de transporte para empresas no RS"
+          subtitle="Estruturamos modelos de transporte para empresas que precisam de segurança, regularidade e previsibilidade na operação logística."
         />
 
-        <div className="nx-grid-cards mt-12 sm:mt-14 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
+        <div className="nx-grid-cards mt-12 sm:mt-14 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
           {SOLUTIONS.map((item) => (
             <IconCardItem
               key={item.title}

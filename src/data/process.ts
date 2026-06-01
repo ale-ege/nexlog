@@ -1,42 +1,40 @@
-import {
-  Search,
-  Route,
-  FileCheck2,
-  Activity,
-} from "lucide-react";
+import { Search, ClipboardList, FileCheck2, Activity } from "lucide-react";
 import type { ProcessStep } from "@/types";
 
 /**
- * Como a NEXLOG estrutura uma operação — 4 etapas claras,
- * do diagnóstico ao acompanhamento ativo da execução.
+ * Como a NEXLOG estrutura uma operação de transporte — 4 etapas
+ * consultivas, do entendimento da necessidade ao acompanhamento.
+ *
+ * O texto do briefing reforça que a NEXLOG é consultiva: antes de
+ * falar em preço, entende a operação.
  */
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     number: "01",
-    title: "Entendemos sua operação",
+    title: "Entendemos sua necessidade",
     description:
-      "Mapeamos volume, frequência, cidades atendidas, tipo de carga e restrições da operação.",
+      "Mapeamos origem, destino, frequência, tipo de carga, volume, horários, restrições e expectativa da operação.",
     icon: Search,
   },
   {
     number: "02",
-    title: "Desenhamos a rota ou modelo dedicado",
+    title: "Avaliamos o melhor modelo de transporte",
     description:
-      "Definimos veículo, frequência, janelas de coleta e entrega, responsabilidades e formato de acompanhamento.",
-    icon: Route,
+      "Analisamos se a operação exige transporte de cargas pontual, caminhão dedicado, frete dedicado, rota programada ou uma solução recorrente.",
+    icon: ClipboardList,
   },
   {
     number: "03",
-    title: "Formalizamos a operação",
+    title: "Organizamos a operação",
     description:
-      "Organizamos condições, custos, responsabilidades e padrão de atendimento para reduzir incertezas.",
+      "Definimos frequência, veículo, janelas de coleta e entrega, responsabilidades e formato de comunicação com a empresa.",
     icon: FileCheck2,
   },
   {
     number: "04",
     title: "Acompanhamos a execução",
     description:
-      "Realizamos comunicação ativa e ajustes conforme a necessidade da empresa.",
+      "Mantemos comunicação direta durante a operação e ajustamos o modelo conforme a evolução da demanda.",
     icon: Activity,
   },
 ];

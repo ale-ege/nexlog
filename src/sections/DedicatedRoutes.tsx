@@ -16,14 +16,15 @@ export function DedicatedRoutes() {
             <SectionHeader
               titleId="dedicated-title"
               eyebrow="Rotas dedicadas em foco"
-              title="Rota dedicada: a base da operação NEXLOG."
-              subtitle="Estruturamos rotas regionais para empresas com demanda recorrente que querem sair da rotina de fretes avulsos — com frequência definida, custo previsível e acompanhamento próximo da execução."
+              title="Rotas dedicadas e caminhão dedicado para empresas no RS"
+              subtitle="Estruturamos rotas regionais e caminhão dedicado para empresas com demanda recorrente — com frequência definida, custo previsível e acompanhamento próximo da execução."
             />
 
             <p className="mt-6 text-base leading-relaxed text-graphite-700 sm:text-lg">
-              Cada rota é desenhada com base na rotina do cliente — frequência,
-              janelas, volume e tipo de carga — para entregar previsibilidade
-              real e reduzir o improviso do dia a dia.
+              Cada rota é desenhada com base na rotina do cliente — origem,
+              destino, frequência, janelas, volume e tipo de carga — para
+              entregar previsibilidade real no transporte e reduzir o improviso
+              do dia a dia.
             </p>
 
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -53,7 +54,7 @@ export function DedicatedRoutes() {
 
             <div className="mt-10">
               <a href="#contato" className="nx-btn-primary">
-                Quero estruturar uma rota dedicada
+                Solicitar avaliação de transporte
                 <ArrowRight
                   className="h-4 w-4"
                   strokeWidth={2.25}

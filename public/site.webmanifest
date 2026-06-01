@@ -1,7 +1,7 @@
 {
   "name": "NEXLOG",
   "short_name": "NEXLOG",
-  "description": "Rotas dedicadas, caminhão dedicado e transporte programado no Rio Grande do Sul.",
+  "description": "Transportadora no RS para transporte de cargas, caminhão dedicado e frete dedicado para empresas.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

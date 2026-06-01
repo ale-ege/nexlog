@@ -1,33 +1,53 @@
-import { Route, Truck, CalendarClock, Handshake } from "lucide-react";
+import {
+  PackageCheck,
+  Truck,
+  Route,
+  CalendarClock,
+  Repeat,
+  MapPinned,
+} from "lucide-react";
 import type { IconCard } from "@/types";
 
 /**
- * 4 soluções principais, exatamente como definidas no briefing comercial.
- * Cada card representa um produto/modelo de operação que a NEXLOG entrega.
+ * 6 soluções de transporte oferecidas para empresas no RS.
+ * Ordem pensada para SEO + jornada de leitura: começa pelo termo mais
+ * buscado (transporte de cargas) e termina no diferencial regional.
  */
 export const SOLUTIONS: IconCard[] = [
   {
-    icon: Route,
-    title: "Rota Dedicada Regional",
+    icon: PackageCheck,
+    title: "Transporte de Cargas no RS",
     description:
-      "Para empresas que fazem entregas recorrentes entre cidades do Rio Grande do Sul e precisam de previsibilidade, segurança e padrão de atendimento.",
+      "Transporte regional para empresas que precisam movimentar cargas entre cidades do Rio Grande do Sul com organização, responsabilidade e atendimento próximo.",
   },
   {
     icon: Truck,
     title: "Caminhão Dedicado",
     description:
-      "Disponibilização de veículo dedicado para operações fixas, recorrentes ou programadas, reduzindo improvisos e aumentando o controle da operação.",
+      "Disponibilização de caminhão dedicado para operações fixas, recorrentes ou programadas, aumentando o controle da empresa sobre sua logística.",
+  },
+  {
+    icon: Route,
+    title: "Frete Dedicado para Empresas",
+    description:
+      "Modelo indicado para empresas que precisam de uma operação mais exclusiva, com planejamento de rota, frequência definida e menor dependência de fretes improvisados.",
   },
   {
     icon: CalendarClock,
-    title: "Operação Programada",
+    title: "Rotas Programadas",
     description:
-      "Planejamento de coletas e entregas com frequência definida, janelas combinadas e acompanhamento ativo da execução.",
+      "Planejamento de coletas e entregas com dias, horários e destinos combinados, trazendo mais previsibilidade para a rotina logística.",
   },
   {
-    icon: Handshake,
-    title: "Parceria Logística Local",
+    icon: Repeat,
+    title: "Rotas Dedicadas",
     description:
-      "Modelo ideal para empresas que buscam uma transportadora próxima, flexível e comprometida com a rotina do cliente.",
+      "Operações estruturadas para atender demandas recorrentes, com foco em regularidade, comunicação direta e acompanhamento da execução.",
+  },
+  {
+    icon: MapPinned,
+    title: "Logística Regional",
+    description:
+      "Apoio logístico para empresas que precisam atender clientes, fornecedores ou unidades operacionais no Rio Grande do Sul.",
   },
 ];

@@ -7,10 +7,16 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://nex.log.br/#sobre</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://nex.log.br/#solucoes</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nex.log.br/#para-quem</loc>
@@ -22,7 +28,7 @@
     <loc>https://nex.log.br/#rotas</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://nex.log.br/#como-funciona</loc>
@@ -40,7 +46,7 @@
     <loc>https://nex.log.br/#seguranca</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nex.log.br/#atuacao</loc>
@@ -52,7 +58,7 @@
     <loc>https://nex.log.br/#faq</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nex.log.br/#contato</loc>

@@ -37,8 +37,8 @@ export function RegionalCoverage() {
             <SectionHeader
               titleId="coverage-title"
               eyebrow="Atuação no RS"
-              title="Parceira logística regional no Rio Grande do Sul."
-              subtitle="A NEXLOG é uma parceira logística regional para empresas no Rio Grande do Sul que precisam de rotas dedicadas, caminhão dedicado e transporte programado — com previsibilidade, segurança e atendimento próximo."
+              title="Transportadora regional em todo o Rio Grande do Sul"
+              subtitle="A NEXLOG atende Porto Alegre, Região Metropolitana, Vale dos Sinos, Serra Gaúcha e demais regiões do RS com transporte de cargas, caminhão dedicado e rotas programadas para empresas."
             />
 
             <p className="mt-6 text-base leading-relaxed text-graphite-700 sm:text-lg">

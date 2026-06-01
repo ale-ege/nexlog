@@ -4,14 +4,16 @@ import type { CompanyInfo } from "@/types";
 // Brasil (55) + DDD 51 (RS) + 9 dígitos.
 const WHATSAPP_NUMBER = "5551991119111";
 
-// Mensagem pré-preenchida do WhatsApp — alinhada ao posicionamento:
-// rota dedicada / operação recorrente (e não "frete avulso").
+// Mensagem pré-preenchida do WhatsApp — sinaliza canal de aquisição
+// (Google) para análise de origem e abre conversa orientada a "avaliar
+// uma solução de transporte" (não "frete avulso").
 const WHATSAPP_CTA_MESSAGE =
-  "Olá, gostaria de avaliar uma rota dedicada para minha empresa no RS.";
+  "Olá, encontrei a NEXLOG pelo Google e gostaria de avaliar uma solução de transporte para minha empresa.";
 
 export const COMPANY: CompanyInfo = {
   name: "NEXLOG",
-  tagline: "Transporte dedicado e operação programada no Rio Grande do Sul.",
+  tagline:
+    "Transportadora no RS para transporte de cargas, caminhão dedicado e frete dedicado.",
   domain: "nex.log.br",
   email: "contato@nex.log.br",
   whatsappLabel: "051 99111-9111",
