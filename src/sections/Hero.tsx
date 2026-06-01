@@ -10,9 +10,6 @@ import type { LucideIcon } from "lucide-react";
 import { Container } from "@/components/Container";
 import { COMPANY } from "@/data/company";
 
-// Arquivo em `public/` — servido como `/hero-rotas-rs.png` sem hash.
-const HERO_MAP_IMAGE = "/hero-rotas-rs.png";
-
 interface MicroProof {
   icon: LucideIcon;
   label: string;
@@ -25,107 +22,116 @@ const MICRO_PROOFS: MicroProof[] = [
   { icon: Eye, label: "Carga acompanhada" },
 ];
 
+/**
+ * Hero centralizado, sem ilustração — foco total na mensagem
+ * (estilo Stripe/Linear/Vercel). Composição:
+ *
+ *   - Eyebrow com selo de posicionamento
+ *   - H1 forte (até 3 linhas no desktop)
+ *   - Subtítulo de apoio
+ *   - 2 CTAs (primário + WhatsApp)
+ *   - 4 microprovas em chips
+ *
+ * O background mantém os blur halos e o grid sutil para sustentar
+ * profundidade sem competir com a leitura.
+ */
 export function Hero() {
   return (
     <section
       id="inicio"
       aria-labelledby="hero-title"
       className="relative isolate overflow-hidden bg-navy-950
-        pt-28 sm:pt-32 lg:pt-36"
+        pt-32 sm:pt-36 lg:pt-44"
     >
       <BackgroundLayers />
 
       <Container size="wide" className="relative z-10 pb-24 sm:pb-28 lg:pb-32">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-7">
-            <span className="nx-eyebrow nx-eyebrow--light animate-fade-up">
-              <Sparkles
-                className="h-3.5 w-3.5"
+        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+          <span className="nx-eyebrow nx-eyebrow--light animate-fade-up">
+            <Sparkles
+              className="h-3.5 w-3.5"
+              strokeWidth={2.25}
+              aria-hidden="true"
+            />
+            Parceiro logístico regional no RS
+          </span>
+
+          <h1
+            id="hero-title"
+            className="mt-6 text-balance font-display text-[36px] font-extrabold
+              leading-[1.05] tracking-[-0.02em] text-white animate-fade-up
+              [animation-delay:80ms]
+              sm:text-5xl sm:leading-[1.04] lg:text-6xl lg:tracking-[-0.025em]
+              xl:text-[64px]"
+          >
+            Transporte dedicado para empresas que precisam de{" "}
+            <span className="bg-gradient-to-r from-accent-300 via-accent-400 to-accent-200 bg-clip-text text-transparent">
+              previsibilidade
+            </span>{" "}
+            no RS.
+          </h1>
+
+          <p
+            className="mt-6 max-w-2xl text-balance text-base leading-relaxed
+              text-graphite-200 animate-fade-up [animation-delay:160ms]
+              sm:text-lg"
+          >
+            Criamos rotas programadas, caminhão dedicado e soluções logísticas
+            regionais para empresas que buscam segurança, atendimento próximo
+            e operação sem improviso.
+          </p>
+
+          <div
+            className="mt-9 flex flex-col gap-3 animate-fade-up
+              [animation-delay:240ms]
+              sm:flex-row sm:items-center"
+          >
+            <a href="#contato" className="nx-btn-primary">
+              Solicitar avaliação de rota
+              <ArrowRight
+                className="h-4 w-4"
                 strokeWidth={2.25}
                 aria-hidden="true"
               />
-              Parceiro logístico regional no RS
-            </span>
-
-            <h1
-              id="hero-title"
-              className="mt-6 font-display text-[34px] font-extrabold
-                leading-[1.06] tracking-[-0.02em] text-white animate-fade-up
-                [animation-delay:80ms]
-                sm:text-5xl sm:leading-[1.05] lg:text-6xl lg:tracking-[-0.025em]"
+            </a>
+            <a
+              href={COMPANY.whatsappCtaLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nx-btn-ghost-light"
             >
-              Transporte dedicado para empresas que precisam de{" "}
-              <span className="bg-gradient-to-r from-accent-300 via-accent-400 to-accent-200 bg-clip-text text-transparent">
-                previsibilidade
-              </span>{" "}
-              no RS.
-            </h1>
+              Falar pelo WhatsApp
+            </a>
+          </div>
 
-            <p
-              className="mt-6 max-w-2xl text-base leading-relaxed text-graphite-200
-                animate-fade-up [animation-delay:160ms] sm:text-lg"
-            >
-              Criamos rotas programadas, caminhão dedicado e soluções
-              logísticas regionais para empresas que buscam segurança,
-              atendimento próximo e operação sem improviso.
-            </p>
-
-            <div
-              className="mt-9 flex flex-col gap-3 animate-fade-up
-                [animation-delay:240ms]
-                sm:flex-row sm:items-center"
-            >
-              <a href="#contato" className="nx-btn-primary">
-                Solicitar avaliação de rota
-                <ArrowRight
-                  className="h-4 w-4"
-                  strokeWidth={2.25}
-                  aria-hidden="true"
-                />
-              </a>
-              <a
-                href={COMPANY.whatsappCtaLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="nx-btn-ghost-light"
+          {/* Microprovas — 4 chips com ícone + texto, alinhados ao briefing */}
+          <ul
+            className="mt-14 grid grid-cols-2 gap-3 animate-fade-up
+              [animation-delay:320ms]
+              sm:max-w-2xl sm:grid-cols-4 sm:gap-4"
+          >
+            {MICRO_PROOFS.map(({ icon: Icon, label }) => (
+              <li
+                key={label}
+                className="group flex items-center gap-2.5 rounded-2xl
+                  border border-white/10 bg-white/[0.04] px-3.5 py-2.5
+                  backdrop-blur-sm transition-colors duration-300
+                  hover:border-accent-400/30 hover:bg-white/[0.06]"
               >
-                Falar pelo WhatsApp
-              </a>
-            </div>
-
-            {/* Microprovas — 4 chips com ícone + texto, alinhados ao briefing */}
-            <ul
-              className="mt-12 grid grid-cols-2 gap-3 animate-fade-up
-                [animation-delay:320ms]
-                sm:max-w-xl sm:grid-cols-4 sm:gap-4"
-            >
-              {MICRO_PROOFS.map(({ icon: Icon, label }) => (
-                <li
-                  key={label}
-                  className="group flex items-center gap-2.5 rounded-2xl
-                    border border-white/10 bg-white/[0.04] px-3.5 py-2.5
-                    backdrop-blur-sm transition-colors duration-300
-                    hover:border-accent-400/30 hover:bg-white/[0.06]"
+                <span
+                  aria-hidden="true"
+                  className="flex h-7 w-7 shrink-0 items-center justify-center
+                    rounded-lg bg-accent-400/15 text-accent-300 ring-1
+                    ring-inset ring-accent-400/30"
                 >
-                  <span
-                    aria-hidden="true"
-                    className="flex h-7 w-7 shrink-0 items-center justify-center
-                      rounded-lg bg-accent-400/15 text-accent-300 ring-1
-                      ring-inset ring-accent-400/30"
-                  >
-                    <Icon className="h-3.5 w-3.5" strokeWidth={2} />
-                  </span>
-                  <span className="text-xs font-semibold leading-tight text-white sm:text-[13px]">
-                    {label}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="lg:col-span-5">
-            <HeroVisual />
-          </div>
+                  <Icon className="h-3.5 w-3.5" strokeWidth={2} />
+                </span>
+                <span className="text-xs font-semibold leading-tight text-white sm:text-[13px]">
+                  {label}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       </Container>
 
@@ -138,6 +144,11 @@ export function Hero() {
   );
 }
 
+/**
+ * Background layered: gradient radial + grid sutil + 2 blur halos
+ * (accent quente + navy frio) para sustentar profundidade sem
+ * roubar a leitura do título.
+ */
 function BackgroundLayers() {
   return (
     <>
@@ -147,72 +158,15 @@ function BackgroundLayers() {
         aria-hidden="true"
       />
       <div
-        className="absolute -top-24 right-1/3 -z-10 h-72 w-72 rounded-full bg-accent-500/20 blur-3xl"
         aria-hidden="true"
+        className="absolute -top-24 left-1/2 -z-10 h-80 w-80 -translate-x-1/2
+          rounded-full bg-accent-500/20 blur-3xl"
       />
       <div
-        className="absolute -bottom-24 left-1/4 -z-10 h-80 w-80 rounded-full bg-navy-600/40 blur-3xl"
         aria-hidden="true"
+        className="absolute -bottom-32 left-1/2 -z-10 h-96 w-96 -translate-x-1/2
+          rounded-full bg-navy-600/40 blur-3xl"
       />
     </>
-  );
-}
-
-/**
- * Visual do Hero: ilustração do Rio Grande do Sul com hub logístico
- * central irradiando rotas dedicadas para o interior do estado e
- * conexão regional integrada com São Paulo.
- *
- * A imagem é PNG com fundo transparente — flutua diretamente sobre o
- * hero (sem moldura/card), apenas com glows accent abaixo para dar
- * profundidade e reforçar o ponto central.
- *
- * Arquivo: `public/hero-rotas-rs.png` (~84 KB). LCP da página:
- * preload no <head>, fetchpriority="high", loading="eager".
- */
-function HeroVisual() {
-  return (
-    <div
-      className="relative mx-auto w-full max-w-md animate-fade-up
-        [animation-delay:200ms] sm:max-w-lg lg:max-w-none"
-    >
-      {/* Halo accent central — reforça o hub do mapa */}
-      <div
-        aria-hidden="true"
-        className="absolute left-1/2 top-1/2 -z-10 h-56 w-56 -translate-x-1/2
-          -translate-y-1/2 rounded-full bg-accent-500/20 blur-3xl
-          sm:h-72 sm:w-72"
-      />
-
-      {/* Halo navy lateral — profundidade fria */}
-      <div
-        aria-hidden="true"
-        className="absolute -left-10 top-1/3 -z-10 h-40 w-40 rounded-full
-          bg-navy-500/30 blur-3xl"
-      />
-
-      <img
-        src={HERO_MAP_IMAGE}
-        alt="Mapa do Rio Grande do Sul com hub logístico central irradiando rotas dedicadas para o interior do estado e conexão regional integrada com São Paulo"
-        width={1024}
-        height={576}
-        loading="eager"
-        // @ts-expect-error — fetchPriority é prop padrão HTML, mas o
-        // React 19 ainda tipa em camelCase apenas em alguns hosts; em
-        // runtime emite o atributo correto.
-        fetchpriority="high"
-        decoding="async"
-        draggable={false}
-        className="relative z-10 mx-auto block h-auto w-full select-none
-          [filter:drop-shadow(0_24px_40px_rgba(34,121,255,0.25))_drop-shadow(0_8px_16px_rgba(0,0,0,0.45))]"
-      />
-
-      {/* Reflexo / glow accent inferior (efeito flutuante premium) */}
-      <div
-        aria-hidden="true"
-        className="absolute -bottom-6 left-1/4 right-1/4 -z-10 h-16
-          rounded-full bg-accent-400/25 blur-3xl"
-      />
-    </div>
   );
 }
