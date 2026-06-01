@@ -1,0 +1,19 @@
+{
+  "name": "NEXLOG",
+  "short_name": "NEXLOG",
+  "description": "Rotas logísticas recorrentes, caminhão dedicado e distribuição programada no RS.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#07173A",
+  "theme_color": "#07173A",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

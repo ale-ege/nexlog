@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#07173A" />
+    <meta name="color-scheme" content="light" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!--
+      Defesa em profundidade via meta CSP.
+      Importante: a CSP definitiva DEVE ser entregue por HTTP header (ver
+      `public/_headers`). Esta meta cobre cenários em que o host não injeta
+      o header (ex.: abrir o HTML direto via file://, hosts sem suporte).
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; upgrade-insecure-requests"
+    />
+
+    <title>NEXLOG | Rotas Dedicadas e Logística Regional no RS</title>
+    <meta
+      name="description"
+      content="A NEXLOG estrutura rotas recorrentes, caminhão dedicado e distribuição programada no Rio Grande do Sul, com operação formalizada, veículos rastreados, seguro completo e atendimento próximo."
+    />
+    <meta name="author" content="NEXLOG" />
+    <meta
+      name="keywords"
+      content="transportadora regional RS, logística regional RS, rotas dedicadas RS, caminhão dedicado RS, distribuição regional RS, distribuição programada RS, operador logístico regional RS, transporte empresarial RS, transporte B2B Rio Grande do Sul, transportadora para empresas RS, parceiro logístico regional, coletas e entregas programadas RS, logística para empresas no RS, distribuição para lojas no RS, rotas logísticas recorrentes"
+    />
+    <meta name="geo.region" content="BR-RS" />
+    <meta name="geo.placename" content="Rio Grande do Sul" />
+    <link rel="canonical" href="https://nex.log.br/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="NEXLOG" />
+    <meta
+      property="og:title"
+      content="NEXLOG | Rotas Dedicadas e Logística Regional no RS"
+    />
+    <meta
+      property="og:description"
+      content="Rotas recorrentes, caminhão dedicado e distribuição programada para empresas no Rio Grande do Sul, com operação formalizada, rastreamento e seguro completo."
+    />
+    <meta property="og:url" content="https://nex.log.br/" />
+    <meta property="og:image" content="https://nex.log.br/og-image.svg" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="NEXLOG — Rotas dedicadas, caminhão dedicado e distribuição regional no Rio Grande do Sul"
+    />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="NEXLOG | Rotas Dedicadas e Logística Regional no RS"
+    />
+    <meta
+      name="twitter:description"
+      content="Rotas recorrentes, caminhão dedicado e distribuição programada para empresas no Rio Grande do Sul, com operação formalizada, rastreamento e seguro completo."
+    />
+    <meta name="twitter:image" content="https://nex.log.br/og-image.svg" />
+    <meta
+      name="twitter:image:alt"
+      content="NEXLOG — Rotas dedicadas, caminhão dedicado e distribuição regional no Rio Grande do Sul"
+    />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Preload do LCP (mapa do Hero) — melhora First Contentful Paint -->
+    <link
+      rel="preload"
+      as="image"
+      href="/hero-rotas-rs.png"
+      fetchpriority="high"
+    />
+
+    <!-- Fontes (Inter + Sora) com pesos enxutos e display=swap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
+    />
+
+    <!--
+      Dados estruturados (Organization + WebSite + FAQPage).
+      Sem endereço físico para não inventar dado: NEXLOG opera regionalmente
+      no RS, sem PDV físico aberto ao público. Schema usa areaServed.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://nex.log.br/#org",
+        "name": "NEXLOG",
+        "alternateName": "NEXLOG Logística",
+        "url": "https://nex.log.br",
+        "logo": "https://nex.log.br/favicon.svg",
+        "image": "https://nex.log.br/og-image.svg",
+        "slogan": "Rotas logísticas recorrentes no RS com custo competitivo, segurança e atendimento próximo.",
+        "description": "Operação logística regional no Rio Grande do Sul, especializada em rotas recorrentes, caminhão dedicado, distribuição programada e transporte empresarial formalizado.",
+        "email": "contato@nex.log.br",
+        "telephone": "+55 51 91119-1111",
+        "areaServed": {
+          "@type": "AdministrativeArea",
+          "name": "Rio Grande do Sul",
+          "containedInPlace": {
+            "@type": "Country",
+            "name": "Brasil"
+          }
+        },
+        "knowsAbout": [
+          "Rotas logísticas recorrentes",
+          "Caminhão dedicado",
+          "Distribuição programada",
+          "Transporte empresarial",
+          "Transporte B2B",
+          "Operação formalizada",
+          "Emissão documental",
+          "CIOT",
+          "Rastreamento de cargas",
+          "Logística regional no Rio Grande do Sul"
+        ],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "telephone": "+55 51 91119-1111",
+            "email": "contato@nex.log.br",
+            "areaServed": "BR-RS",
+            "availableLanguage": ["Portuguese"]
+          }
+        ],
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "name": "Rotas recorrentes",
+            "description": "Coletas e entregas frequentes em regiões definidas do Rio Grande do Sul."
+          },
+          {
+            "@type": "Offer",
+            "name": "Caminhão dedicado",
+            "description": "Veículo dedicado à rotina do cliente, com previsibilidade de horários e custo."
+          },
+          {
+            "@type": "Offer",
+            "name": "Distribuição programada",
+            "description": "Planejamento e execução de entregas regionais para lojas, unidades e redes."
+          },
+          {
+            "@type": "Offer",
+            "name": "Operação formalizada",
+            "description": "Emissão documental, CIOT quando aplicável, rastreamento e seguro completo."
+          }
+        ],
+        "sameAs": []
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://nex.log.br/#website",
+        "name": "NEXLOG",
+        "url": "https://nex.log.br",
+        "inLanguage": "pt-BR",
+        "publisher": { "@id": "https://nex.log.br/#org" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "O que é uma rota logística recorrente?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Uma rota logística recorrente é uma operação de transporte realizada com frequência definida, atendendo regiões, lojas, clientes ou unidades de forma programada. Esse modelo traz mais previsibilidade, controle e organização para empresas que possuem entregas frequentes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quando vale a pena contratar um caminhão dedicado?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "O caminhão dedicado é indicado quando a empresa possui demanda frequente, precisa de maior controle sobre horários, rotas e entregas, ou deseja reduzir a dependência de fretes avulsos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "A NEXLOG atende fretes avulsos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "O foco da NEXLOG está em operações recorrentes, rotas dedicadas, caminhão dedicado e distribuição programada. Demandas pontuais podem ser avaliadas, mas a prioridade é criar soluções logísticas organizadas para empresas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "A NEXLOG atua no Rio Grande do Sul?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim. A NEXLOG atua com soluções logísticas regionais no Rio Grande do Sul, estruturando rotas recorrentes e operações dedicadas conforme a necessidade de cada empresa."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "A operação possui seguro?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A NEXLOG trabalha com segurança operacional, incluindo seguro para carga, terceiros e caminhão, conforme as características da operação contratada."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Os caminhões possuem rastreador?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim. A operação pode contar com caminhões rastreados, oferecendo mais controle, acompanhamento e segurança durante o transporte."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "A NEXLOG emite documentação de transporte?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim. A NEXLOG atua com emissão documental e formalização da operação, incluindo CIOT quando aplicável."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qual a diferença entre contratar a NEXLOG e uma grande transportadora?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A NEXLOG oferece uma operação regional mais próxima, flexível e competitiva para empresas que precisam de rotas recorrentes, distribuição programada e caminhão dedicado, sem a complexidade de grandes operadores."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

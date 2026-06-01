@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Importante: NÃO bloqueamos /assets/, /src/ ou similares, pois o
+# Googlebot precisa carregar CSS e JS para renderizar a página.
+
+Sitemap: https://nex.log.br/sitemap.xml

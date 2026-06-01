@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="NEXLOG - Rotas logisticas recorrentes no Rio Grande do Sul">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#07173A"/>
+      <stop offset="1" stop-color="#0F2A60"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="20%" r="60%">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0 L0 0 0 48" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Logo mark -->
+  <g transform="translate(96 96)">
+    <rect width="84" height="84" rx="18" fill="#0A1F4A" stroke="rgba(255,255,255,0.12)"/>
+    <path d="M22 60 L36 30 L48 48 L66 24" stroke="#22D3EE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="66" cy="24" r="4.5" fill="#22D3EE"/>
+    <circle cx="22" cy="60" r="3" fill="#fff" fill-opacity="0.9"/>
+  </g>
+
+  <text x="200" y="160" font-family="Sora, Inter, sans-serif" font-size="48" font-weight="800" letter-spacing="6" fill="#FFFFFF">NEXLOG</text>
+
+  <!-- Headline -->
+  <text x="96" y="320" font-family="Sora, Inter, sans-serif" font-size="62" font-weight="800" fill="#FFFFFF">Rotas log&#237;sticas recorrentes</text>
+  <text x="96" y="396" font-family="Sora, Inter, sans-serif" font-size="62" font-weight="800" fill="#FFFFFF">no RS, com custo competitivo,</text>
+  <text x="96" y="472" font-family="Sora, Inter, sans-serif" font-size="62" font-weight="800" fill="#22D3EE">seguran&#231;a e proximidade.</text>
+
+  <text x="96" y="544" font-family="Inter, sans-serif" font-size="22" font-weight="500" fill="#CDD1D8">Rotas recorrentes &#183; Caminh&#227;o dedicado &#183; Distribui&#231;&#227;o programada</text>
+
+  <!-- Footer URL -->
+  <text x="1104" y="572" text-anchor="end" font-family="Inter, sans-serif" font-size="20" font-weight="600" fill="#67E8F9">nex.log.br</text>
+</svg>
