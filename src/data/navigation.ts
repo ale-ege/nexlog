@@ -3,8 +3,8 @@ import type { NavItem } from "@/types";
 export const NAV_ITEMS: NavItem[] = [
   { id: "inicio", label: "Início", href: "#inicio" },
   { id: "solucoes", label: "Soluções", href: "#solucoes" },
-  { id: "rotas", label: "Rotas Dedicadas", href: "#rotas" },
-  { id: "seguranca", label: "Segurança Operacional", href: "#seguranca" },
-  { id: "parcerias", label: "Parcerias", href: "#parcerias" },
+  { id: "para-quem", label: "Para Quem", href: "#para-quem" },
+  { id: "como-funciona", label: "Como Funciona", href: "#como-funciona" },
+  { id: "diferenciais", label: "Diferenciais", href: "#diferenciais" },
   { id: "contato", label: "Contato", href: "#contato" },
 ];

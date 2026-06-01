@@ -1,48 +1,53 @@
 import {
-  FileText,
-  FileCheck2,
-  Satellite,
-  ShieldCheck,
   MessageSquare,
-  RefreshCw,
+  Repeat,
+  CalendarCheck,
+  MapPin,
+  ShieldCheck,
+  FileCheck2,
 } from "lucide-react";
 import type { IconCard } from "@/types";
 
+/**
+ * 6 pontos da seção "Segurança e previsibilidade".
+ * Foco em comportamento operacional (comunicação, planejamento,
+ * responsabilidade) — e não em "marketing técnico".
+ */
 export const SECURITY_CARDS: IconCard[] = [
   {
-    icon: FileText,
-    title: "Emissão documental",
+    icon: MessageSquare,
+    title: "Comunicação direta durante a operação",
     description:
-      "Operações com emissão dos documentos necessários para transporte empresarial e controle da operação.",
+      "Canal aberto com quem opera. Sem intermediários, sem desencontros — informação clara em cada etapa.",
   },
   {
-    icon: FileCheck2,
-    title: "CIOT quando aplicável",
+    icon: Repeat,
+    title: "Planejamento de rotas recorrentes",
     description:
-      "Formalização da operação conforme exigências do transporte rodoviário de cargas.",
+      "Rotas estruturadas com frequência definida, janelas combinadas e visão de longo prazo da operação.",
   },
   {
-    icon: Satellite,
-    title: "Caminhões rastreados",
+    icon: CalendarCheck,
+    title: "Apoio para operações programadas",
     description:
-      "Monitoramento dos veículos para maior controle, segurança e acompanhamento das rotas.",
+      "Coletas e entregas organizadas com antecedência, reduzindo correria e contratações de última hora.",
+  },
+  {
+    icon: MapPin,
+    title: "Atendimento próximo e regional",
+    description:
+      "Equipe presente no Rio Grande do Sul, com conhecimento das rotas, das cidades e da rotina das empresas locais.",
   },
   {
     icon: ShieldCheck,
-    title: "Seguro completo",
+    title: "Responsabilidade com prazos e cargas",
     description:
-      "Cobertura para carga, terceiros e caminhão, reduzindo riscos e aumentando a tranquilidade do contratante.",
+      "Cada operação é tratada com cuidado, do recebimento à entrega — com responsabilidade clara em cada etapa.",
   },
   {
-    icon: MessageSquare,
-    title: "Comunicação direta",
+    icon: FileCheck2,
+    title: "Operação formalizada",
     description:
-      "Contato próximo para alinhamento, acompanhamento e ajustes operacionais.",
-  },
-  {
-    icon: RefreshCw,
-    title: "Compromisso com continuidade",
-    description:
-      "Operação pensada para rotas recorrentes, com foco em estabilidade e relacionamento de longo prazo.",
+      "Emissão documental, CIOT quando aplicável e formalização adequada para empresas que exigem padrão profissional.",
   },
 ];

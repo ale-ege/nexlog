@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="NEXLOG - Rotas logisticas recorrentes no Rio Grande do Sul">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="NEXLOG - Transporte dedicado e operacao programada no Rio Grande do Sul">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#07173A"/>
@@ -27,11 +27,11 @@
   <text x="200" y="160" font-family="Sora, Inter, sans-serif" font-size="48" font-weight="800" letter-spacing="6" fill="#FFFFFF">NEXLOG</text>
 
   <!-- Headline -->
-  <text x="96" y="320" font-family="Sora, Inter, sans-serif" font-size="62" font-weight="800" fill="#FFFFFF">Rotas log&#237;sticas recorrentes</text>
-  <text x="96" y="396" font-family="Sora, Inter, sans-serif" font-size="62" font-weight="800" fill="#FFFFFF">no RS, com custo competitivo,</text>
-  <text x="96" y="472" font-family="Sora, Inter, sans-serif" font-size="62" font-weight="800" fill="#22D3EE">seguran&#231;a e proximidade.</text>
+  <text x="96" y="320" font-family="Sora, Inter, sans-serif" font-size="60" font-weight="800" fill="#FFFFFF">Transporte dedicado para</text>
+  <text x="96" y="392" font-family="Sora, Inter, sans-serif" font-size="60" font-weight="800" fill="#FFFFFF">empresas que precisam de</text>
+  <text x="96" y="464" font-family="Sora, Inter, sans-serif" font-size="60" font-weight="800" fill="#22D3EE">previsibilidade no RS.</text>
 
-  <text x="96" y="544" font-family="Inter, sans-serif" font-size="22" font-weight="500" fill="#CDD1D8">Rotas recorrentes &#183; Caminh&#227;o dedicado &#183; Distribui&#231;&#227;o programada</text>
+  <text x="96" y="540" font-family="Inter, sans-serif" font-size="22" font-weight="500" fill="#CDD1D8">Rotas dedicadas &#183; Caminh&#227;o dedicado &#183; Transporte programado</text>
 
   <!-- Footer URL -->
   <text x="1104" y="572" text-anchor="end" font-family="Inter, sans-serif" font-size="20" font-weight="600" fill="#67E8F9">nex.log.br</text>

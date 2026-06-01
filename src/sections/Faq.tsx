@@ -15,8 +15,8 @@ export function Faq() {
         <SectionHeader
           titleId="faq-title"
           eyebrow="Perguntas frequentes"
-          title="Perguntas frequentes sobre logística regional e rotas dedicadas."
-          subtitle="Tire dúvidas comuns sobre operações recorrentes, caminhão dedicado, distribuição programada e segurança no transporte regional no Rio Grande do Sul."
+          title="Dúvidas comuns sobre transporte dedicado e operação programada."
+          subtitle="Respostas claras sobre como funcionam rotas dedicadas, caminhão dedicado, operação programada e o modelo de parceria regional da NEXLOG no RS."
         />
 
         <div className="mx-auto mt-12 max-w-3xl space-y-3 sm:mt-14 lg:mt-16">

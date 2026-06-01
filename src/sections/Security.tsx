@@ -22,9 +22,9 @@ export function Security() {
       <Container size="wide" className="relative">
         <SectionHeader
           titleId="security-title"
-          eyebrow="Segurança operacional"
-          title="Segurança operacional no transporte regional."
-          subtitle="A NEXLOG combina a agilidade de uma operação regional com práticas essenciais de uma transportadora profissional: emissão documental, CIOT quando aplicável, caminhões rastreados e seguro para carga, terceiros e caminhão."
+          eyebrow="Segurança e previsibilidade"
+          title="Segurança e previsibilidade para sua operação."
+          subtitle="Cada operação é estruturada com foco em responsabilidade, comunicação clara e acompanhamento da carga. A NEXLOG atua para reduzir improvisos, atrasos e incertezas no transporte regional."
           variant="dark"
         />
 

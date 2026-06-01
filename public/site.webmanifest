@@ -1,7 +1,7 @@
 {
   "name": "NEXLOG",
   "short_name": "NEXLOG",
-  "description": "Rotas logísticas recorrentes, caminhão dedicado e distribuição programada no RS.",
+  "description": "Rotas dedicadas, caminhão dedicado e transporte programado no Rio Grande do Sul.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

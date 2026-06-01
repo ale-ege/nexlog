@@ -1,9 +1,29 @@
-import { ArrowRight, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Sparkles,
+  CalendarCheck,
+  Headphones,
+  MapPin,
+  Eye,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Container } from "@/components/Container";
 import { COMPANY } from "@/data/company";
 
 // Arquivo em `public/` — servido como `/hero-rotas-rs.png` sem hash.
 const HERO_MAP_IMAGE = "/hero-rotas-rs.png";
+
+interface MicroProof {
+  icon: LucideIcon;
+  label: string;
+}
+
+const MICRO_PROOFS: MicroProof[] = [
+  { icon: CalendarCheck, label: "Rotas programadas" },
+  { icon: Headphones, label: "Atendimento direto" },
+  { icon: MapPin, label: "Operação regional" },
+  { icon: Eye, label: "Carga acompanhada" },
+];
 
 export function Hero() {
   return (
@@ -24,7 +44,7 @@ export function Hero() {
                 strokeWidth={2.25}
                 aria-hidden="true"
               />
-              Operação logística regional no RS
+              Parceiro logístico regional no RS
             </span>
 
             <h1
@@ -34,29 +54,20 @@ export function Hero() {
                 [animation-delay:80ms]
                 sm:text-5xl sm:leading-[1.05] lg:text-6xl lg:tracking-[-0.025em]"
             >
-              Rotas logísticas recorrentes no RS com{" "}
+              Transporte dedicado para empresas que precisam de{" "}
               <span className="bg-gradient-to-r from-accent-300 via-accent-400 to-accent-200 bg-clip-text text-transparent">
-                custo competitivo, segurança
+                previsibilidade
               </span>{" "}
-              e atendimento próximo.
+              no RS.
             </h1>
 
             <p
               className="mt-6 max-w-2xl text-base leading-relaxed text-graphite-200
                 animate-fade-up [animation-delay:160ms] sm:text-lg"
             >
-              A NEXLOG estrutura operações regionais para empresas que precisam
-              de rotas dedicadas, caminhão dedicado e distribuição programada
-              no Rio Grande do Sul, com emissão documental, veículos
-              rastreados e seguro completo.
-            </p>
-            <p
-              className="mt-4 max-w-2xl text-sm leading-relaxed text-graphite-300
-                animate-fade-up [animation-delay:200ms] sm:text-base"
-            >
-              Uma alternativa profissional para empresas que buscam mais
-              previsibilidade logística sem a burocracia e o custo de grandes
-              operadores.
+              Criamos rotas programadas, caminhão dedicado e soluções
+              logísticas regionais para empresas que buscam segurança,
+              atendimento próximo e operação sem improviso.
             </p>
 
             <div
@@ -65,7 +76,7 @@ export function Hero() {
                 sm:flex-row sm:items-center"
             >
               <a href="#contato" className="nx-btn-primary">
-                Solicitar análise de rota
+                Solicitar avaliação de rota
                 <ArrowRight
                   className="h-4 w-4"
                   strokeWidth={2.25}
@@ -78,18 +89,37 @@ export function Hero() {
                 rel="noopener noreferrer"
                 className="nx-btn-ghost-light"
               >
-                Falar no WhatsApp
+                Falar pelo WhatsApp
               </a>
             </div>
 
+            {/* Microprovas — 4 chips com ícone + texto, alinhados ao briefing */}
             <ul
-              className="mt-12 grid grid-cols-2 gap-4 animate-fade-up
+              className="mt-12 grid grid-cols-2 gap-3 animate-fade-up
                 [animation-delay:320ms]
-                sm:max-w-lg sm:grid-cols-3"
+                sm:max-w-xl sm:grid-cols-4 sm:gap-4"
             >
-              <Stat label="Atuação" value="Regional RS" />
-              <Stat label="Modelo" value="Rotas recorrentes" />
-              <Stat label="Operação" value="Formalizada" />
+              {MICRO_PROOFS.map(({ icon: Icon, label }) => (
+                <li
+                  key={label}
+                  className="group flex items-center gap-2.5 rounded-2xl
+                    border border-white/10 bg-white/[0.04] px-3.5 py-2.5
+                    backdrop-blur-sm transition-colors duration-300
+                    hover:border-accent-400/30 hover:bg-white/[0.06]"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="flex h-7 w-7 shrink-0 items-center justify-center
+                      rounded-lg bg-accent-400/15 text-accent-300 ring-1
+                      ring-inset ring-accent-400/30"
+                  >
+                    <Icon className="h-3.5 w-3.5" strokeWidth={2} />
+                  </span>
+                  <span className="text-xs font-semibold leading-tight text-white sm:text-[13px]">
+                    {label}
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -105,20 +135,6 @@ export function Hero() {
           bg-gradient-to-r from-transparent via-white/15 to-transparent"
       />
     </section>
-  );
-}
-
-function Stat({ label, value }: { label: string; value: string }) {
-  return (
-    <li
-      className="rounded-2xl border border-white/10 bg-white/[0.04]
-        px-4 py-3 backdrop-blur-sm"
-    >
-      <p className="nx-label text-accent-300">{label}</p>
-      <p className="mt-1 font-display text-base font-semibold text-white">
-        {value}
-      </p>
-    </li>
   );
 }
 

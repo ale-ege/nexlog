@@ -1,18 +1,31 @@
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { Hero } from "@/sections/Hero";
-import { Problem } from "@/sections/Problem";
 import { Solutions } from "@/sections/Solutions";
+import { Audience } from "@/sections/Audience";
 import { DedicatedRoutes } from "@/sections/DedicatedRoutes";
-import { Comparison } from "@/sections/Comparison";
-import { Security } from "@/sections/Security";
 import { Process } from "@/sections/Process";
+import { Differentials } from "@/sections/Differentials";
+import { Security } from "@/sections/Security";
 import { RegionalCoverage } from "@/sections/RegionalCoverage";
 import { Faq } from "@/sections/Faq";
-import { Partnerships } from "@/sections/Partnerships";
 import { Contact } from "@/sections/Contact";
 import { Footer } from "@/sections/Footer";
 
+/**
+ * Ordem narrativa do site, do reconhecimento à conversão:
+ *
+ *   Hero            → quem somos / proposta
+ *   Solutions       → o que entregamos (4 produtos)
+ *   Audience        → para quem é (4 públicos)
+ *   DedicatedRoutes → aprofunda o produto âncora (rota dedicada)
+ *   Process         → como entregamos (4 etapas)
+ *   Differentials   → por que nós (4 motivos)
+ *   Security        → segurança e previsibilidade
+ *   RegionalCoverage→ onde atuamos (SEO local)
+ *   Faq             → tira últimas dúvidas
+ *   Contact         → fecha conversão
+ */
 export default function App() {
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -27,14 +40,13 @@ export default function App() {
 
       <main id="conteudo" className="flex-1">
         <Hero />
-        <Problem />
         <Solutions />
+        <Audience />
         <DedicatedRoutes />
-        <Comparison />
-        <Security />
         <Process />
+        <Differentials />
+        <Security />
         <RegionalCoverage />
-        <Partnerships />
         <Faq />
         <Contact />
       </main>

@@ -65,9 +65,9 @@ export function Footer() {
               {COMPANY.tagline}
             </p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-graphite-300">
-              Rotas recorrentes, caminhão dedicado e distribuição programada
-              para empresas que buscam custo competitivo, segurança e
-              atendimento próximo.
+              Parceira logística regional para empresas que precisam de rotas
+              dedicadas, caminhão dedicado e operação programada — com
+              previsibilidade, segurança e atendimento próximo.
             </p>
 
             <div
@@ -154,8 +154,7 @@ export function Footer() {
             © {FOOTER_YEAR} {COMPANY.name}. Todos os direitos reservados.
           </p>
           <p>
-            Rotas recorrentes · Caminhão dedicado · Distribuição programada no
-            RS
+            Rotas dedicadas · Caminhão dedicado · Transporte programado no RS
           </p>
         </div>
       </Container>

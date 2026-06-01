@@ -48,8 +48,8 @@ export function Contact() {
             <SectionHeader
               titleId="contact-title"
               eyebrow="Contato"
-              title="Fale com a NEXLOG sobre sua operação logística regional."
-              subtitle="Entre em contato para avaliar rotas recorrentes, caminhão dedicado, distribuição regional ou parcerias logísticas no Rio Grande do Sul."
+              title="Fale com a NEXLOG sobre a sua operação."
+              subtitle="Avaliamos rotas dedicadas, caminhão dedicado e operações programadas para empresas no Rio Grande do Sul. Sem fórmula pronta — cada solução é desenhada conforme a sua rotina."
             />
 
             <p className="mt-6 text-sm leading-relaxed text-graphite-700 sm:text-base">
@@ -64,7 +64,7 @@ export function Contact() {
                 rel="noopener noreferrer"
                 className="nx-btn-primary"
               >
-                Falar no WhatsApp
+                Falar pelo WhatsApp
                 <ArrowRight
                   className="h-4 w-4"
                   strokeWidth={2.25}

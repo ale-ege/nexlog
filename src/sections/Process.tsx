@@ -5,7 +5,7 @@ import { PROCESS_STEPS } from "@/data/process";
 export function Process() {
   return (
     <section
-      id="operacao"
+      id="como-funciona"
       aria-labelledby="process-title"
       className="relative nx-section overflow-hidden bg-navy-950 text-white"
     >
@@ -21,9 +21,9 @@ export function Process() {
       <Container size="wide" className="relative">
         <SectionHeader
           titleId="process-title"
-          eyebrow="Como trabalhamos"
-          title="Como estruturamos sua operação logística regional."
-          subtitle="Do diagnóstico inicial à operação contínua, conduzimos cada etapa com método, controle e proximidade — transformando demanda recorrente em operação organizada."
+          eyebrow="Como funciona"
+          title="Como estruturamos sua operação — em 4 etapas."
+          subtitle="Do entendimento inicial à execução acompanhada, cada operação é construída com método, proximidade e clareza de responsabilidades."
           variant="dark"
         />
 

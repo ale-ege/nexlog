@@ -45,15 +45,3 @@ export interface CompanySegment {
   icon: LucideIcon;
   label: string;
 }
-
-export interface ComparisonColumn {
-  id: string;
-  title: string;
-  subtitle: string;
-  bullets: string[];
-  /** Coluna em destaque (visual diferenciado). */
-  highlight?: boolean;
-  /** Selo opcional exibido no topo da coluna em destaque. */
-  badge?: string;
-  icon: LucideIcon;
-}

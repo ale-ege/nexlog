@@ -15,15 +15,15 @@ export function DedicatedRoutes() {
           <div className="lg:col-span-7">
             <SectionHeader
               titleId="dedicated-title"
-              eyebrow="Rotas dedicadas"
-              title="Rotas dedicadas e caminhão dedicado para empresas no Rio Grande do Sul."
-              subtitle="A NEXLOG estrutura rotas regionais para empresas que possuem demanda recorrente e precisam de uma operação mais estável, organizada e alinhada à sua rotina, com previsibilidade de custo e acompanhamento próximo."
+              eyebrow="Rotas dedicadas em foco"
+              title="Rota dedicada: a base da operação NEXLOG."
+              subtitle="Estruturamos rotas regionais para empresas com demanda recorrente que querem sair da rotina de fretes avulsos — com frequência definida, custo previsível e acompanhamento próximo da execução."
             />
 
             <p className="mt-6 text-base leading-relaxed text-graphite-700 sm:text-lg">
-              Em vez de buscar fretes avulsos diariamente, sua empresa pode
-              contar com uma operação planejada, com frequência definida,
-              acompanhamento próximo e maior previsibilidade de custo.
+              Cada rota é desenhada com base na rotina do cliente — frequência,
+              janelas, volume e tipo de carga — para entregar previsibilidade
+              real e reduzir o improviso do dia a dia.
             </p>
 
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">

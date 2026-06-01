@@ -36,14 +36,15 @@ export function RegionalCoverage() {
             <SectionHeader
               titleId="coverage-title"
               eyebrow="Atuação no RS"
-              title="Logística regional para empresas no Rio Grande do Sul."
-              subtitle="A NEXLOG atua no Rio Grande do Sul com soluções logísticas voltadas a empresas que precisam de rotas recorrentes, distribuição programada e caminhão dedicado. Nosso modelo é indicado para operações regionais que exigem custo competitivo, atendimento próximo, segurança documental e controle durante o transporte."
+              title="Parceira logística regional no Rio Grande do Sul."
+              subtitle="A NEXLOG é uma parceira logística regional para empresas no Rio Grande do Sul que precisam de rotas dedicadas, caminhão dedicado e transporte programado — com previsibilidade, segurança e atendimento próximo."
             />
 
             <p className="mt-6 text-base leading-relaxed text-graphite-700 sm:text-lg">
-              Atendemos empresas que buscam estruturar entregas frequentes,
-              abastecimento de lojas, coletas programadas, distribuição de
-              produtos e operações logísticas recorrentes em rotas regionais.
+              Atendemos indústrias, distribuidores, redes e e-commerces
+              regionais que buscam estruturar entregas frequentes,
+              abastecimento de lojas e operações recorrentes no RS, com
+              conexões eventuais a outros estados conforme a operação.
             </p>
 
             <ul className="mt-8 space-y-3">

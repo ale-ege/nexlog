@@ -1,46 +1,42 @@
 import {
   Search,
   Route,
-  Handshake,
-  Truck,
-  TrendingUp,
+  FileCheck2,
+  Activity,
 } from "lucide-react";
 import type { ProcessStep } from "@/types";
 
+/**
+ * Como a NEXLOG estrutura uma operação — 4 etapas claras,
+ * do diagnóstico ao acompanhamento ativo da execução.
+ */
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     number: "01",
-    title: "Diagnóstico da operação",
+    title: "Entendemos sua operação",
     description:
-      "Entendemos a demanda, região de atendimento, frequência, tipo de carga, volume e necessidades específicas.",
+      "Mapeamos volume, frequência, cidades atendidas, tipo de carga e restrições da operação.",
     icon: Search,
   },
   {
     number: "02",
-    title: "Desenho da rota",
+    title: "Desenhamos a rota ou modelo dedicado",
     description:
-      "Estruturamos o melhor modelo logístico: rota recorrente, caminhão dedicado, distribuição programada ou operação regional personalizada.",
+      "Definimos veículo, frequência, janelas de coleta e entrega, responsabilidades e formato de acompanhamento.",
     icon: Route,
   },
   {
     number: "03",
-    title: "Definição comercial e operacional",
+    title: "Formalizamos a operação",
     description:
-      "Alinhamos frequência, horários, documentação, responsabilidades, custos e critérios de acompanhamento.",
-    icon: Handshake,
+      "Organizamos condições, custos, responsabilidades e padrão de atendimento para reduzir incertezas.",
+    icon: FileCheck2,
   },
   {
     number: "04",
-    title: "Execução com controle",
+    title: "Acompanhamos a execução",
     description:
-      "Operamos com veículos rastreados, emissão documental, comunicação direta e compromisso com os prazos.",
-    icon: Truck,
-  },
-  {
-    number: "05",
-    title: "Acompanhamento e melhoria",
-    description:
-      "Monitoramos a operação e ajustamos o modelo conforme a demanda cresce ou muda.",
-    icon: TrendingUp,
+      "Realizamos comunicação ativa e ajustes conforme a necessidade da empresa.",
+    icon: Activity,
   },
 ];
