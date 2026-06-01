@@ -10,6 +10,21 @@ monitoramento do site da NEXLOG:
 
 ---
 
+## Status atual da instalação
+
+| Ferramenta | Status | Local |
+|---|---|---|
+| Google Analytics 4 | **INSTALADO** (`G-FQFSE62VC0`) | `index.html` — snippet `gtag.js` direto no `<head>` |
+| Google Tag Manager | Não instalado | Bloco comentado pronto em `index.html` + suporte via env |
+| Microsoft Clarity | Não instalado | Suporte via env `VITE_CLARITY_PROJECT_ID` |
+
+> **IMPORTANTE — sem duplicação:** o GA4 está direto no HTML.
+> Por isso, **NÃO** preencha `VITE_GA_MEASUREMENT_ID` em `.env.local`.
+> O componente `<Analytics />` em `src/components/Analytics.tsx`
+> detecta `window.gtag` já criado e não recarrega.
+
+---
+
 ## 1. Estrutura técnica do projeto
 
 | Arquivo | Função |

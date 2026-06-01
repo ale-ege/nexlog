@@ -48,6 +48,27 @@
     <meta name="ICBM" content="-29.851, -51.280" />
     <link rel="canonical" href="https://nex.log.br/" />
 
+    <!--
+      ============================================================
+      Google Analytics 4 — gtag.js (instalação direta no HTML)
+      ============================================================
+      Property: NEXLOG · Measurement ID: G-FQFSE62VC0
+      Carrega em todas as páginas (SPA = página única real).
+
+      IMPORTANTE: Como o GA4 já está instalado AQUI direto, NÃO
+      configure VITE_GA_MEASUREMENT_ID em .env.local — isso causaria
+      duplicidade. O componente <Analytics /> detecta a presença de
+      window.gtag e ignora o carregamento alternativo.
+    -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQFSE62VC0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-FQFSE62VC0');
+    </script>
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
