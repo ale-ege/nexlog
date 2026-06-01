@@ -143,13 +143,16 @@ function BackgroundLayers() {
 }
 
 /**
- * Visual do Hero: mapa satelital estilizado do Rio Grande do Sul
- * mostrando uma rota dedicada conectando regiões logísticas estratégicas,
- * com cards de produto sobrepostos (Monitoramento, Caminhão dedicado,
- * Distribuição regional, Operação programada).
+ * Visual do Hero: ilustração do Rio Grande do Sul com hub logístico
+ * central irradiando rotas dedicadas para o interior do estado e
+ * conexão regional integrada com São Paulo.
  *
- * A imagem está em `public/hero-rotas-rs.png` (~121 KB) e é o LCP da
- * página: preload no <head>, fetchpriority="high", loading="eager".
+ * A imagem é PNG com fundo transparente — flutua diretamente sobre o
+ * hero (sem moldura/card), apenas com glows accent abaixo para dar
+ * profundidade e reforçar o ponto central.
+ *
+ * Arquivo: `public/hero-rotas-rs.png` (~84 KB). LCP da página:
+ * preload no <head>, fetchpriority="high", loading="eager".
  */
 function HeroVisual() {
   return (
@@ -157,40 +160,42 @@ function HeroVisual() {
       className="relative mx-auto w-full max-w-md animate-fade-up
         [animation-delay:200ms] sm:max-w-lg lg:max-w-none"
     >
-      <div
-        className="relative aspect-[16/9] w-full overflow-hidden rounded-[24px]
-          border border-white/10
-          bg-gradient-to-br from-navy-800/40 via-navy-900/40 to-navy-950
-          shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)]
-          ring-1 ring-inset ring-white/5"
-      >
-        <img
-          src={HERO_MAP_IMAGE}
-          alt="Mapa do Rio Grande do Sul com rota logística dedicada conectando Passo Fundo, Caxias do Sul, Novo Hamburgo, Porto Alegre, Pelotas e Rio Grande, com cards de monitoramento, caminhão dedicado, distribuição regional e operação programada"
-          width={1024}
-          height={576}
-          loading="eager"
-          // @ts-expect-error — fetchPriority é prop padrão HTML, mas o
-          // React 19 ainda tipa em camelCase apenas em alguns hosts; em
-          // runtime emite o atributo correto.
-          fetchpriority="high"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-
-        {/* Gradiente sutil topo→base para amarrar com a borda do card */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-24
-            bg-gradient-to-t from-navy-950/40 to-transparent"
-        />
-      </div>
-
-      {/* Reflexo / glow accent atrás do card (efeito flutuante premium) */}
+      {/* Halo accent central — reforça o hub do mapa */}
       <div
         aria-hidden="true"
-        className="absolute -bottom-8 left-1/4 right-1/4 -z-10 h-24
-          rounded-full bg-accent-400/15 blur-3xl"
+        className="absolute left-1/2 top-1/2 -z-10 h-56 w-56 -translate-x-1/2
+          -translate-y-1/2 rounded-full bg-accent-500/20 blur-3xl
+          sm:h-72 sm:w-72"
+      />
+
+      {/* Halo navy lateral — profundidade fria */}
+      <div
+        aria-hidden="true"
+        className="absolute -left-10 top-1/3 -z-10 h-40 w-40 rounded-full
+          bg-navy-500/30 blur-3xl"
+      />
+
+      <img
+        src={HERO_MAP_IMAGE}
+        alt="Mapa do Rio Grande do Sul com hub logístico central irradiando rotas dedicadas para o interior do estado e conexão regional integrada com São Paulo"
+        width={1024}
+        height={576}
+        loading="eager"
+        // @ts-expect-error — fetchPriority é prop padrão HTML, mas o
+        // React 19 ainda tipa em camelCase apenas em alguns hosts; em
+        // runtime emite o atributo correto.
+        fetchpriority="high"
+        decoding="async"
+        draggable={false}
+        className="relative z-10 mx-auto block h-auto w-full select-none
+          [filter:drop-shadow(0_24px_40px_rgba(34,121,255,0.25))_drop-shadow(0_8px_16px_rgba(0,0,0,0.45))]"
+      />
+
+      {/* Reflexo / glow accent inferior (efeito flutuante premium) */}
+      <div
+        aria-hidden="true"
+        className="absolute -bottom-6 left-1/4 right-1/4 -z-10 h-16
+          rounded-full bg-accent-400/25 blur-3xl"
       />
     </div>
   );
