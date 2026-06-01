@@ -14,14 +14,30 @@ monitoramento do site da NEXLOG:
 
 | Ferramenta | Status | Local |
 |---|---|---|
-| Google Analytics 4 | **INSTALADO** (`G-FQFSE62VC0`) | `index.html` — snippet `gtag.js` direto no `<head>` |
-| Google Tag Manager | Não instalado | Bloco comentado pronto em `index.html` + suporte via env |
-| Microsoft Clarity | Não instalado | Suporte via env `VITE_CLARITY_PROJECT_ID` |
+| Google Tag Manager | **INSTALADO** (`GTM-KQZ5VVLG`) | `index.html` — snippet no `<head>` + noscript após `<body>` |
+| Google Analytics 4 | Configurar **dentro do GTM** (`G-FQFSE62VC0`) | Tag "Google Tag (GA4 Configuration)" no container do GTM |
+| Microsoft Clarity | Não instalado | Suporte via env `VITE_CLARITY_PROJECT_ID` ou tag custom HTML no GTM |
 
-> **IMPORTANTE — sem duplicação:** o GA4 está direto no HTML.
-> Por isso, **NÃO** preencha `VITE_GA_MEASUREMENT_ID` em `.env.local`.
-> O componente `<Analytics />` em `src/components/Analytics.tsx`
-> detecta `window.gtag` já criado e não recarrega.
+> **IMPORTANTE — sem duplicação:** o GTM está direto no HTML.
+> **NÃO** preencha `VITE_GTM_CONTAINER_ID` nem `VITE_GA_MEASUREMENT_ID`
+> em `.env.local` — o GA4 vai por dentro do GTM. O componente
+> `<Analytics />` detecta `window.dataLayer` já criado pelo snippet e
+> retorna sem recarregar (segurança extra).
+
+### Como configurar o GA4 dentro do GTM (passo a passo)
+
+1. Acesse https://tagmanager.google.com e abra o container **GTM-KQZ5VVLG**
+2. **Tags** → **Nova** → tipo **Google Tag (Google Analytics: GA4 Configuration)**
+3. Em "Tag ID" cole: `G-FQFSE62VC0`
+4. Trigger: **All Pages** (Initialization)
+5. Salve a tag
+6. Crie uma **Tag GA4 Event** para cada evento de conversão (lista abaixo):
+   - Tag Type: **Google Analytics: GA4 Event**
+   - Configuration Tag: a tag criada no passo 2
+   - Event Name: `click_whatsapp` (ou outro da lista)
+   - Trigger: **Custom Event** com Event name `click_whatsapp`
+7. Repita o passo 6 para cada um dos 6 eventos
+8. **Submit** (canto superior direito) → versiona e publica
 
 ---
 

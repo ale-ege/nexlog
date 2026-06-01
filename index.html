@@ -50,24 +50,27 @@
 
     <!--
       ============================================================
-      Google Analytics 4 — gtag.js (instalação direta no HTML)
+      Google Tag Manager — Container GTM-KQZ5VVLG
       ============================================================
-      Property: NEXLOG · Measurement ID: G-FQFSE62VC0
-      Carrega em todas as páginas (SPA = página única real).
+      Carrega em todas as páginas (SPA = um único index.html).
+      O GA4 (G-FQFSE62VC0) deve ser configurado DENTRO do GTM,
+      via tag "Google Tag (GA4 Configuration)" + trigger "All Pages".
+      NÃO adicionar gtag.js direto neste HTML — causaria duplicidade.
 
-      IMPORTANTE: Como o GA4 já está instalado AQUI direto, NÃO
-      configure VITE_GA_MEASUREMENT_ID em .env.local — isso causaria
-      duplicidade. O componente <Analytics /> detecta a presença de
-      window.gtag e ignora o carregamento alternativo.
+      Anti-duplicação no componente <Analytics />:
+        - Se VITE_GTM_CONTAINER_ID for preenchido por engano em
+          .env.local, o componente detecta window.dataLayer (já
+          criado pelo snippet abaixo) e retorna sem recarregar.
     -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQFSE62VC0"></script>
+    <!-- Google Tag Manager -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-FQFSE62VC0');
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-KQZ5VVLG');
     </script>
+    <!-- End Google Tag Manager -->
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -298,55 +301,19 @@
         ]
       }
     </script>
-    <!--
-      ============================================================
-      GOOGLE TAG MANAGER (head) — INSTRUÇÕES
-      ============================================================
-      Para ativar diretamente no HTML:
-        1. Descomente o bloco "GTM-SCRIPT" abaixo (apague apenas as
-           linhas que dizem GTM-SCRIPT-BEGIN/END).
-        2. Substitua GTM-XXXXXXX pelo ID real do seu container.
-        3. Faça um novo build (npm run build) e suba a pasta dist/.
-
-      ALTERNATIVA SEM EDITAR HTML (recomendada para dev/deploy):
-        Configure VITE_GTM_CONTAINER_ID em .env.local. O componente
-        Analytics em src/components/Analytics.tsx carrega o GTM
-        automaticamente em tempo de execução.
-
-      ATENÇÃO: use apenas UMA das duas abordagens (HTML OU env)
-      para evitar duplicidade de tags.
-
-      GTM-SCRIPT-BEGIN
-      &lt;script&gt;
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-XXXXXXX');
-      &lt;/script&gt;
-      GTM-SCRIPT-END
-    -->
   </head>
   <body>
-    <!--
-      ============================================================
-      GOOGLE TAG MANAGER (noscript fallback)
-      ============================================================
-      Necessário para usuários sem JavaScript. Para ativar:
-      descomente o bloco GTM-NOSCRIPT abaixo e substitua
-      GTM-XXXXXXX pelo ID real.
-
-      GTM-NOSCRIPT-BEGIN
-      &lt;noscript&gt;
-        &lt;iframe
-          src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-          height="0" width="0"
-          style="display:none;visibility:hidden"
-          title="Google Tag Manager"
-        &gt;&lt;/iframe&gt;
-      &lt;/noscript&gt;
-      GTM-NOSCRIPT-END
-    -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KQZ5VVLG"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+        title="Google Tag Manager"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
