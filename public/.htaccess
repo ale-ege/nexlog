@@ -1,0 +1,108 @@
+# =============================================================
+# NEXLOG — Configuração Apache (cPanel)
+#
+# Equivalente Apache do `public/_headers` (Netlify/Cloudflare).
+# Mantenha ambos em sincronia quando alterar políticas de
+# segurança ou cache.
+#
+# Coloque este arquivo na raiz do site (ex: public_html/).
+# =============================================================
+
+# ============= 1. Forçar HTTPS =============
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ============= 2. Compressão (gzip) =============
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/json application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml application/rss+xml
+  AddOutputFilterByType DEFLATE image/svg+xml image/x-icon
+  AddOutputFilterByType DEFLATE font/woff font/woff2
+</IfModule>
+
+# ============= 3. Cache de assets =============
+# Assets do Vite vêm com hash no nome (index-XXX.js) — seguros para
+# cache forte. HTML revalida sempre para refletir mudanças.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+
+  ExpiresByType text/html "access plus 5 minutes"
+  ExpiresByType application/manifest+json "access plus 1 hour"
+  ExpiresByType text/xml "access plus 1 hour"
+  ExpiresByType text/plain "access plus 1 hour"
+
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # ----- Cache-Control mais explícito -----
+  <FilesMatch "\.(css|js|svg|png|jpg|jpeg|webp|avif|woff2|woff)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=300, must-revalidate"
+  </FilesMatch>
+
+  # ============= 4. Headers de segurança =============
+  # CSP estrita: idêntica à meta CSP do index.html + _headers.
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; upgrade-insecure-requests"
+
+  # HSTS — exige HTTPS por 2 anos. Só ative depois de confirmar HTTPS
+  # funcionando, pois é difícil reverter (preload é permanente).
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Cross-Origin-Resource-Policy "same-origin"
+  Header always set X-DNS-Prefetch-Control "on"
+
+  # Remove header revelando versão do Apache (defesa em profundidade)
+  Header unset X-Powered-By
+  Header unset Server
+</IfModule>
+
+# ============= 5. Proibir acesso a arquivos sensíveis =============
+<FilesMatch "(^\.|\.env|\.git|composer\.|package\.json|package-lock\.json|tsconfig|vite\.config|tailwind\.config|postcss\.config|\.tsbuildinfo$)">
+  Require all denied
+</FilesMatch>
+
+# ============= 6. MIME types corretos =============
+<IfModule mod_mime.c>
+  AddType image/svg+xml .svg
+  AddType image/webp .webp
+  AddType image/avif .avif
+  AddType application/manifest+json .webmanifest
+  AddType font/woff2 .woff2
+  AddType font/woff .woff
+</IfModule>
+
+# ============= 7. Listagem de diretório desabilitada =============
+Options -Indexes
+
+# ============= 8. (FUTURO) SPA fallback =============
+# O site atual é one-page e usa #âncoras (#solucoes, #faq, etc.).
+# NÃO precisa de fallback enquanto não houver rotas client-side.
+# Quando criar /blog, /quem-somos, etc., descomente abaixo:
+#
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{REQUEST_FILENAME} !-f
+#   RewriteCond %{REQUEST_FILENAME} !-d
+#   RewriteRule . /index.html [L]
+# </IfModule>
